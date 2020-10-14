@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module LibXSLT::XSLT - libxml-xslt</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-register_module_function">::register_module_function</a>
+    
+    <li ><a href="#method-c-registered_module_function-3F">::registered_module_function?</a>
+    
+    <li ><a href="#method-c-unregister_module_function">::unregister_module_function</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-LibXSLT::XSLT">
+  <h1 id="module-LibXSLT::XSLT" class="module">
+    module LibXSLT::XSLT
+  </h1>
+
+  <section class="description">
+    
+<p>The libxslt gem provides Ruby language bindings for GNOME&#39;s Libxslt toolkit. It is free software, released under the MIT License.</p>
+
+<p>Using the bindings is straightforward:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stylesheet_doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;stylesheet_file&#39;</span>)
+<span class="ruby-identifier">stylesheet</span> = <span class="ruby-constant">XSLT</span><span class="ruby-operator">::</span><span class="ruby-constant">Stylesheet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stylesheet_doc</span>)
+
+<span class="ruby-identifier">xml_doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">file</span>(<span class="ruby-string">&#39;xml_file&#39;</span>)
+<span class="ruby-identifier">result</span> = <span class="ruby-identifier">stylesheet</span>.<span class="ruby-identifier">apply</span>(<span class="ruby-identifier">xml_doc</span>)
+</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_URL">DEFAULT_URL
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_VENDOR">DEFAULT_VENDOR
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_VERSION">DEFAULT_VERSION
+        
+        <dd>
+        
+      
+        <dt id="ENGINE_VERSION">ENGINE_VERSION
+        
+        <dd>
+        
+      
+        <dt id="LIBXML_VERSION">LIBXML_VERSION
+        
+        <dd>
+        
+      
+        <dt id="LIBXSLT_VERSION">LIBXSLT_VERSION
+        
+        <dd>
+        
+      
+        <dt id="MAX_DEPTH">MAX_DEPTH
+        
+        <dd>
+        
+      
+        <dt id="MAX_SORT">MAX_SORT
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE_LIBXSLT">NAMESPACE_LIBXSLT
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE_SAXON">NAMESPACE_SAXON
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE_XALAN">NAMESPACE_XALAN
+        
+        <dd>
+        
+      
+        <dt id="NAMESPACE_XT">NAMESPACE_XT
+        
+        <dd>
+        
+      
+        <dt id="XSLT_NAMESPACE">XSLT_NAMESPACE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-register_module_function" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            register_module_function(namespace, name) { ... } &rarr; Proc or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Registers <code>name</code> as extension module function in <code>namespace</code> with the block as callback. Returns the callback if successful, or <code>nil</code> otherwise.</p>
+
+<p>The callback will be called with whatever XPath expression you pass into the function converted to a Ruby object. Its return value will be converted to an XPath expression again.</p>
+
+<p>Example:</p>
+
+<pre># register your extension function
+XSLT.register_module_function(&#39;http://ex.ns&#39;, &#39;ex-func&#39;) { |xp|
+  xp.to_a.join(&#39;|&#39;).upcase
+}
+
+# then use it in your stylesheet
+&lt;xsl:stylesheet ... xmlns:ex=&quot;http://ex.ns&quot;&gt;
+  ...
+  &lt;xsl:value-of select=&quot;ex:ex-func(.)&quot; /&gt;
+  &lt;!-- the current node as upper case string --&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="register_module_function-source">
+            <pre>static VALUE
+ruby_xslt_register_module_function(VALUE class, VALUE namespace, VALUE name) {
+  VALUE callback;
+
+  if (!rb_block_given_p()) {
+    rb_raise(rb_eArgError, &quot;no block given&quot;);
+  }
+
+  if (xsltRegisterExtModuleFunction(
+    BAD_CAST StringValuePtr(name),
+    BAD_CAST StringValuePtr(namespace),
+    ruby_xslt_module_function_callback
+  ) != 0) {
+    return Qnil;
+  }
+
+  callback = rb_block_proc();
+
+  rb_hash_aset(ruby_xslt_module_function_hash(namespace), name, callback);
+  return callback;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-registered_module_function-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            registered_module_function?(namespace, name) &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if <code>name</code> is currently registered as extension module function in <code>namespace</code>, or <code>false</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="registered_module_function-3F-source">
+            <pre>static VALUE
+ruby_xslt_registered_module_function_p(VALUE class, VALUE namespace, VALUE name) {
+  return RTEST(rb_hash_aref(ruby_xslt_module_function_hash(namespace), name));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unregister_module_function" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            unregister_module_function(namespace, name) &rarr; Proc or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Unregisters <code>name</code> as extension module function in <code>namespace</code>. Returns the previous callback if successful, or <code>nil</code> otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unregister_module_function-source">
+            <pre>static VALUE
+ruby_xslt_unregister_module_function(VALUE class, VALUE namespace, VALUE name) {
+  VALUE func_hash, callback;
+
+  func_hash = ruby_xslt_module_function_hash(namespace);
+
+  if ((callback = rb_hash_aref(func_hash, name)) == Qnil) {
+    return Qnil;
+  }
+
+  if (xsltUnregisterExtModuleFunction(
+    BAD_CAST StringValuePtr(name),
+    BAD_CAST StringValuePtr(namespace)
+  ) != 0) {
+    return Qnil;
+  }
+
+  rb_hash_aset(func_hash, name, Qnil);
+  return callback;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

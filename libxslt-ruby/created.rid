@@ -1,0 +1,11 @@
+Tue, 13 Oct 2020 19:33:02 -0700
+ext/libxslt/libxslt.c	Mon, 18 May 2020 22:56:24 -0700
+ext/libxslt/ruby_exslt.c	Mon, 18 May 2020 22:39:35 -0700
+ext/libxslt/ruby_xslt_stylesheet.c	Mon, 18 May 2020 22:39:35 -0700
+lib/libxslt-ruby.rb	Tue, 19 May 2020 01:46:34 -0700
+lib/libxslt.rb	Tue, 19 May 2020 01:31:04 -0700
+lib/libxslt/stylesheet.rb	Tue, 19 May 2020 01:45:33 -0700
+lib/xslt.rb	Mon, 18 May 2020 22:39:35 -0700
+CHANGES	Tue, 19 May 2020 01:59:44 -0700
+README.rdoc	Mon, 18 May 2020 22:39:35 -0700
+LICENSE	Mon, 18 May 2020 22:39:35 -0700
