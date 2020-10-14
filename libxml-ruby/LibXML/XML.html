@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>module LibXML::XML - LibXML</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-catalog_dump">::catalog_dump</a>
+    
+    <li ><a href="#method-c-catalog_remove">::catalog_remove</a>
+    
+    <li ><a href="#method-c-check_lib_versions">::check_lib_versions</a>
+    
+    <li ><a href="#method-c-debug_entities">::debug_entities</a>
+    
+    <li ><a href="#method-c-debug_entities-3D">::debug_entities=</a>
+    
+    <li ><a href="#method-c-default_compression">::default_compression</a>
+    
+    <li ><a href="#method-c-default_compression-3D">::default_compression=</a>
+    
+    <li ><a href="#method-c-default_keep_blanks">::default_keep_blanks</a>
+    
+    <li ><a href="#method-c-default_keep_blanks-3D">::default_keep_blanks=</a>
+    
+    <li ><a href="#method-c-default_line_numbers">::default_line_numbers</a>
+    
+    <li ><a href="#method-c-default_line_numbers-3D">::default_line_numbers=</a>
+    
+    <li ><a href="#method-c-default_load_external_dtd">::default_load_external_dtd</a>
+    
+    <li ><a href="#method-c-default_load_external_dtd-3D">::default_load_external_dtd=</a>
+    
+    <li ><a href="#method-c-default_options">::default_options</a>
+    
+    <li ><a href="#method-c-default_pedantic_parser">::default_pedantic_parser</a>
+    
+    <li ><a href="#method-c-default_pedantic_parser-3D">::default_pedantic_parser=</a>
+    
+    <li ><a href="#method-c-default_save_no_empty_tags">::default_save_no_empty_tags</a>
+    
+    <li ><a href="#method-c-default_save_no_empty_tags-3D">::default_save_no_empty_tags=</a>
+    
+    <li ><a href="#method-c-default_substitute_entities">::default_substitute_entities</a>
+    
+    <li ><a href="#method-c-default_substitute_entities-3D">::default_substitute_entities=</a>
+    
+    <li ><a href="#method-c-default_tree_indent_string">::default_tree_indent_string</a>
+    
+    <li ><a href="#method-c-default_tree_indent_string-3D">::default_tree_indent_string=</a>
+    
+    <li ><a href="#method-c-default_validity_checking">::default_validity_checking</a>
+    
+    <li ><a href="#method-c-default_validity_checking-3D">::default_validity_checking=</a>
+    
+    <li ><a href="#method-c-default_warnings">::default_warnings</a>
+    
+    <li ><a href="#method-c-default_warnings-3D">::default_warnings=</a>
+    
+    <li ><a href="#method-c-enabled_automata-3F">::enabled_automata?</a>
+    
+    <li ><a href="#method-c-enabled_c14n-3F">::enabled_c14n?</a>
+    
+    <li ><a href="#method-c-enabled_catalog-3F">::enabled_catalog?</a>
+    
+    <li ><a href="#method-c-enabled_debug-3F">::enabled_debug?</a>
+    
+    <li ><a href="#method-c-enabled_docbook-3F">::enabled_docbook?</a>
+    
+    <li ><a href="#method-c-enabled_ftp-3F">::enabled_ftp?</a>
+    
+    <li ><a href="#method-c-enabled_html-3F">::enabled_html?</a>
+    
+    <li ><a href="#method-c-enabled_http-3F">::enabled_http?</a>
+    
+    <li ><a href="#method-c-enabled_iconv-3F">::enabled_iconv?</a>
+    
+    <li ><a href="#method-c-enabled_memory_debug-3F">::enabled_memory_debug?</a>
+    
+    <li ><a href="#method-c-enabled_regexp-3F">::enabled_regexp?</a>
+    
+    <li ><a href="#method-c-enabled_schemas-3F">::enabled_schemas?</a>
+    
+    <li ><a href="#method-c-enabled_thread-3F">::enabled_thread?</a>
+    
+    <li ><a href="#method-c-enabled_unicode-3F">::enabled_unicode?</a>
+    
+    <li ><a href="#method-c-enabled_xinclude-3F">::enabled_xinclude?</a>
+    
+    <li ><a href="#method-c-enabled_xpath-3F">::enabled_xpath?</a>
+    
+    <li ><a href="#method-c-enabled_xpointer-3F">::enabled_xpointer?</a>
+    
+    <li ><a href="#method-c-enabled_zlib-3F">::enabled_zlib?</a>
+    
+    <li ><a href="#method-c-features">::features</a>
+    
+    <li ><a href="#method-c-indent_tree_output">::indent_tree_output</a>
+    
+    <li ><a href="#method-c-indent_tree_output-3D">::indent_tree_output=</a>
+    
+    <li ><a href="#method-c-memory_dump">::memory_dump</a>
+    
+    <li ><a href="#method-c-memory_used">::memory_used</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-LibXML::XML">
+  <h1 id="module-LibXML::XML" class="module">
+    module LibXML::XML
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="LIBXML_VERSION">LIBXML_VERSION
+        
+        <dd><p>Constants</p>
+        
+      
+        <dt id="VERNUM">VERNUM
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+        <dt id="XML_NAMESPACE">XML_NAMESPACE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-catalog_dump" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            catalog_dump &rarr; true
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Dump all the global catalog content stdout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="catalog_dump-source">
+            <pre>static VALUE rxml_catalog_dump(VALUE self)
+{
+  xmlCatalogDump(stdout);
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-catalog_remove" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            catalog_remove(catalog) &rarr; true
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Remove the specified resource catalog.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="catalog_remove-source">
+            <pre>static VALUE rxml_catalog_remove(VALUE self, VALUE cat)
+{
+  Check_Type(cat, T_STRING);
+  xmlCatalogRemove((xmlChar *) StringValuePtr(cat));
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-check_lib_versions" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            check_lib_versions &rarr; true
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Check LIBXML version matches version the bindings were compiled to. Throws an exception if not.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_lib_versions-source">
+            <pre>static VALUE rxml_check_lib_versions(VALUE klass)
+{
+  xmlCheckVersion(LIBXML_VERSION);
+  return (Qtrue);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-debug_entities" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            debug_entities &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether included-entity debugging is enabled. (Requires Libxml to be compiled with debugging support)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug_entities-source">
+            <pre>static VALUE rxml_debug_entities_get(VALUE klass)
+{
+#ifdef LIBXML_DEBUG_ENABLED
+  if (xmlParserDebugEntities)
+  return(Qtrue);
+  else
+  return(Qfalse);
+#else
+  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-debug_entities-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            debug_entities = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Enable or disable included-entity debugging. (Requires Libxml to be compiled with debugging support)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug_entities-3D-source">
+            <pre>static VALUE rxml_debug_entities_set(VALUE klass, VALUE value)
+{
+#ifdef LIBXML_DEBUG_ENABLED
+  if (value == Qfalse)
+  {
+    xmlParserDebugEntities = 0;
+    return(Qfalse);
+  }
+  else
+  {
+    xmlParserDebugEntities = 1;
+    return(Qtrue);
+  }
+#else
+  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_compression" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_compression &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers use Zlib compression by default (requires libxml to be compiled with Zlib support).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_compression-source">
+            <pre>static VALUE rxml_default_compression_get(VALUE klass)
+{
+#ifdef HAVE_ZLIB_H
+  return(INT2FIX(xmlGetCompressMode()));
+#else
+  rb_warn(&quot;libxml was compiled without zlib support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_compression-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_compression = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers use Zlib compression by default (requires libxml to be compiled with Zlib support).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_compression-3D-source">
+            <pre>static VALUE rxml_default_compression_set(VALUE klass, VALUE num)
+{
+#ifdef HAVE_ZLIB_H
+  Check_Type(num, T_FIXNUM);
+  xmlSetCompressMode(FIX2INT(num));
+  return(num);
+#else
+  rb_warn(&quot;libxml was compiled without zlib support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_keep_blanks" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_keep_blanks &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers retain whitespace by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_keep_blanks-source">
+            <pre>static VALUE rxml_default_keep_blanks_get(VALUE klass)
+{
+  if (xmlKeepBlanksDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_keep_blanks-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_keep_blanks = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers retain whitespace by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_keep_blanks-3D-source">
+            <pre>static VALUE rxml_default_keep_blanks_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlKeepBlanksDefaultValue = 0;
+    return (Qfalse);
+  }
+  else if (value == Qtrue)
+  {
+    xmlKeepBlanksDefaultValue = 1;
+    return (Qtrue);
+  }
+  else
+  {
+    rb_raise(rb_eArgError, &quot;Invalid argument, must be a boolean&quot;);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_line_numbers" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_line_numbers &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers retain line-numbers by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_line_numbers-source">
+            <pre>static VALUE rxml_default_line_numbers_get(VALUE klass)
+{
+  if (xmlLineNumbersDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_line_numbers-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_line_numbers = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers retain line-numbers by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_line_numbers-3D-source">
+            <pre>static VALUE rxml_default_line_numbers_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlLineNumbersDefault(0);
+    return (Qfalse);
+  }
+  else
+  {
+    xmlLineNumbersDefault(1);
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_load_external_dtd" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_load_external_dtd &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers load external DTDs by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_load_external_dtd-source">
+            <pre>static VALUE rxml_default_load_external_dtd_get(VALUE klass)
+{
+  if (xmlLoadExtDtdDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_load_external_dtd-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_load_external_dtd = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers load external DTDs by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_load_external_dtd-3D-source">
+            <pre>static VALUE rxml_default_load_external_dtd_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlLoadExtDtdDefaultValue = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    xmlLoadExtDtdDefaultValue = 1;
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_options" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_options &rarr; int
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns an integer that summarize libxml2&#39;s default options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_options-source">
+            <pre>static VALUE rxml_default_options_get(VALUE klass)
+{
+  int options = rxml_libxml_default_options();
+  return INT2NUM(options);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_pedantic_parser" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_pedantic_parser &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers are pedantic by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_pedantic_parser-source">
+            <pre>static VALUE rxml_default_pedantic_parser_get(VALUE klass)
+{
+  if (xmlPedanticParserDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_pedantic_parser-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_pedantic_parser = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers are pedantic by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_pedantic_parser-3D-source">
+            <pre>static VALUE rxml_default_pedantic_parser_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlPedanticParserDefault(0);
+    return (Qfalse);
+  }
+  else
+  {
+    xmlPedanticParserDefault(1);
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_save_no_empty_tags" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_save_no_empty_tags &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether serializer outputs empty tags by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_save_no_empty_tags-source">
+            <pre>static VALUE rxml_default_save_no_empty_tags_get(VALUE klass)
+{
+  if (xmlSaveNoEmptyTags)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_save_no_empty_tags-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_save_no_empty_tags = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether serializer outputs empty tags by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_save_no_empty_tags-3D-source">
+            <pre>static VALUE rxml_default_save_no_empty_tags_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlSaveNoEmptyTags = 0;
+    return (Qfalse);
+  }
+  else if (value == Qtrue)
+  {
+    xmlSaveNoEmptyTags = 1;
+    return (Qtrue);
+  }
+  else
+  {
+    rb_raise(rb_eArgError, &quot;Invalid argument, must be a boolean&quot;);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_substitute_entities" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_substitute_entities &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers perform inline entity substitution (for external entities) by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_substitute_entities-source">
+            <pre>static VALUE rxml_default_substitute_entities_get(VALUE klass)
+{
+  if (xmlSubstituteEntitiesDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_substitute_entities-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_substitute_entities = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers perform inline entity substitution (for external entities) by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_substitute_entities-3D-source">
+            <pre>static VALUE rxml_default_substitute_entities_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlSubstituteEntitiesDefault(0);
+    return (Qfalse);
+  }
+  else
+  {
+    xmlSubstituteEntitiesDefault(1);
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_tree_indent_string" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_tree_indent_string &rarr; &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtain the default string used by parsers to indent the <a href="XML.html"><code>XML</code></a> tree for output.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_tree_indent_string-source">
+            <pre>static VALUE rxml_default_tree_indent_string_get(VALUE klass)
+{
+  if (xmlTreeIndentString == NULL)
+    return (Qnil);
+  else
+    return (rb_str_new2(xmlTreeIndentString));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_tree_indent_string-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_tree_indent_string = &quot;string&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the default string used by parsers to indent the <a href="XML.html"><code>XML</code></a> tree for output.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_tree_indent_string-3D-source">
+            <pre>static VALUE rxml_default_tree_indent_string_set(VALUE klass, VALUE string)
+{
+  Check_Type(string, T_STRING);
+  xmlTreeIndentString = (const char *)xmlStrdup((xmlChar *)StringValuePtr(string));
+  return (string);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_validity_checking" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_validity_checking &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers perform <a href="XML.html"><code>XML</code></a> validation by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_validity_checking-source">
+            <pre>static VALUE rxml_default_validity_checking_get(VALUE klass)
+{
+  if (xmlDoValidityCheckingDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_validity_checking-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_validity_checking = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers perform <a href="XML.html"><code>XML</code></a> validation by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_validity_checking-3D-source">
+            <pre>static VALUE rxml_default_validity_checking_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlDoValidityCheckingDefaultValue = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    xmlDoValidityCheckingDefaultValue = 1;
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_warnings" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_warnings &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether parsers output warnings by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_warnings-source">
+            <pre>static VALUE rxml_default_warnings_get(VALUE klass)
+{
+  if (xmlGetWarningsDefaultValue)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_warnings-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            default_warnings = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether parsers output warnings by default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_warnings-3D-source">
+            <pre>static VALUE rxml_default_warnings_set(VALUE klass, VALUE value)
+{
+  if (value == Qfalse)
+  {
+    xmlGetWarningsDefaultValue = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    xmlGetWarningsDefaultValue = 1;
+    return (Qtrue);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_automata-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_automata? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml regexp automata support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_automata-3F-source">
+            <pre>static VALUE rxml_enabled_automata_q(VALUE klass)
+{
+#ifdef LIBXML_AUTOMATA_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_c14n-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_c14n? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml &#39;canonical XML&#39; support is enabled. See “Canonical XML” (<a href="http://www.w3.org/TR/xml-c14n">www.w3.org/TR/xml-c14n</a>)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_c14n-3F-source">
+            <pre>static VALUE rxml_enabled_c14n_q(VALUE klass)
+{
+#ifdef LIBXML_C14N_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_catalog-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_catalog? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml resource catalog support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_catalog-3F-source">
+            <pre>static VALUE rxml_enabled_catalog_q(VALUE klass)
+{
+#ifdef LIBXML_CATALOG_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_debug-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_debug? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml debugging support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_debug-3F-source">
+            <pre>static VALUE rxml_enabled_debug_q(VALUE klass)
+{
+#ifdef LIBXML_DEBUG_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_docbook-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_docbook? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml docbook support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_docbook-3F-source">
+            <pre>static VALUE rxml_enabled_docbook_q(VALUE klass)
+{
+#ifdef LIBXML_DOCB_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_ftp-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_ftp? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml ftp client support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_ftp-3F-source">
+            <pre>static VALUE rxml_enabled_ftp_q(VALUE klass)
+{
+#ifdef LIBXML_FTP_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_html-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_html? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml html support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_html-3F-source">
+            <pre>static VALUE rxml_enabled_html_q(VALUE klass)
+{
+#ifdef LIBXML_HTML_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_http-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_http? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml http client support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_http-3F-source">
+            <pre>static VALUE rxml_enabled_http_q(VALUE klass)
+{
+#ifdef LIBXML_HTTP_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_iconv-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_iconv? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml iconv support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_iconv-3F-source">
+            <pre>static VALUE rxml_enabled_iconv_q(VALUE klass)
+{
+#ifdef LIBXML_ICONV_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_memory_debug-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_memory_debug? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml memory location debugging support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_memory_debug-3F-source">
+            <pre>static VALUE rxml_enabled_memory_debug_location_q(VALUE klass)
+{
+#ifdef DEBUG_MEMORY_LOCATION
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_regexp-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_regexp? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml regular expression support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_regexp-3F-source">
+            <pre>static VALUE rxml_enabled_regexp_q(VALUE klass)
+{
+#ifdef LIBXML_REGEXP_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_schemas-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_schemas? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml schema support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_schemas-3F-source">
+            <pre>static VALUE rxml_enabled_schemas_q(VALUE klass)
+{
+#ifdef LIBXML_SCHEMAS_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_thread-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_thread? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether thread-safe semantics support for libxml is enabled and is used by this ruby extension.  Threading support in libxml uses pthread on Unix-like systems and Win32 threads on Windows.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_thread-3F-source">
+            <pre>static VALUE rxml_enabled_thread_q(VALUE klass)
+{
+  /* This won&#39;t be defined unless this code is compiled with _REENTRANT or __MT__
+   * defined or the compiler is in C99 mode.
+   *
+   * Note the relevant portion libxml/xmlversion.h on a thread-enabled build:
+   *
+   *    #if defined(_REENTRANT) || defined(__MT__) || \
+   *        (defined(_POSIX_C_SOURCE) &amp;&amp; (_POSIX_C_SOURCE - 0 &gt;= 199506L))
+   *        #define LIBXML_THREAD_ENABLED
+   *    #endif
+   *
+   */
+#ifdef LIBXML_THREAD_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_unicode-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_unicode? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml unicode support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_unicode-3F-source">
+            <pre>static VALUE rxml_enabled_unicode_q(VALUE klass)
+{
+#ifdef LIBXML_UNICODE_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_xinclude-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_xinclude? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml xinclude support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_xinclude-3F-source">
+            <pre>static VALUE rxml_enabled_xinclude_q(VALUE klass)
+{
+#ifdef LIBXML_XINCLUDE_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_xpath-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_xpath? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml xpath support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_xpath-3F-source">
+            <pre>static VALUE rxml_enabled_xpath_q(VALUE klass)
+{
+#ifdef LIBXML_XPATH_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_xpointer-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_xpointer? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml xpointer support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_xpointer-3F-source">
+            <pre>static VALUE rxml_enabled_xpointer_q(VALUE klass)
+{
+#ifdef LIBXML_XPTR_ENABLED
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-enabled_zlib-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enabled_zlib? &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determine whether libxml zlib support is enabled.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enabled_zlib-3F-source">
+            <pre>static VALUE rxml_enabled_zlib_q(VALUE klass)
+{
+#ifdef HAVE_ZLIB_H
+  return(Qtrue);
+#else
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-features" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            features &rarr; [&quot;feature&quot;, ..., &quot;feature&quot;]
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Obtains an array of strings representing features supported (and enabled) by the installed libxml.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="features-source">
+            <pre>static VALUE rxml_features(VALUE klass)
+{
+  VALUE arr, str;
+  int i, len = MAX_LIBXML_FEATURES_LEN;
+  char **list = NULL;
+
+  list = ALLOC_N(char *,MAX_LIBXML_FEATURES_LEN);
+  MEMZERO(list, char *, MAX_LIBXML_FEATURES_LEN);
+
+  arr = rb_ary_new();
+  if (xmlGetFeaturesList(&amp;len, (const char **) list) == -1)
+    return Qnil;
+
+  for (i = 0; i &lt; len; i++)
+  {
+    str = rb_str_new2((const char *) list[i]);
+    rb_gc_unregister_address(&amp;str);
+    rb_ary_push(arr, str);
+  }
+
+  if (len == MAX_LIBXML_FEATURES_LEN)
+    rb_warn(
+        &quot;Please contact libxml-devel@rubyforge.org and ask to have the \&quot;MAX_LIBXML_FEATURES_LEN increased\&quot; because you could possibly be seeing an incomplete list&quot;);
+
+  ruby_xfree(list);
+  return (arr);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-indent_tree_output" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            indent_tree_output &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Determines whether <a href="XML.html"><code>XML</code></a> output will be indented (using the string supplied to <code>default_indent_tree_string</code>)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indent_tree_output-source">
+            <pre>static VALUE rxml_indent_tree_output_get(VALUE klass)
+{
+  if (xmlIndentTreeOutput)
+    return (Qtrue);
+  else
+    return (Qfalse);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-indent_tree_output-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            indent_tree_output = true|false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether <a href="XML.html"><code>XML</code></a> output will be indented (using the string supplied to <code>default_indent_tree_string</code>)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indent_tree_output-3D-source">
+            <pre>static VALUE rxml_indent_tree_output_set(VALUE klass, VALUE value)
+{
+  if (value == Qtrue)
+  {
+    xmlIndentTreeOutput = 1;
+    return (Qtrue);
+  }
+  else if (value == Qfalse)
+  {
+    xmlIndentTreeOutput = 0;
+    return (Qfalse);
+  }
+  else
+  {
+    rb_raise(rb_eArgError, &quot;Invalid argument, must be boolean&quot;);
+  }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_dump" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            memory_dump &rarr; (true|false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Perform a parser memory dump (requires memory debugging support in libxml).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="memory_dump-source">
+            <pre>static VALUE rxml_memory_dump(VALUE self)
+{
+#ifdef DEBUG_MEMORY_LOCATION
+  xmlMemoryDump();
+  return(Qtrue);
+#else
+  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_used" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            memory_used &rarr; num_bytes
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Perform a parser memory dump (requires memory debugging support in libxml).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="memory_used-source">
+            <pre>static VALUE rxml_memory_used(VALUE self)
+{
+#ifdef DEBUG_MEMORY_LOCATION
+  return(INT2NUM(xmlMemUsed()));
+#else
+  rb_warn(&quot;libxml was compiled without memory debugging support&quot;);
+  return (Qfalse);
+#endif
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
