@@ -21,8 +21,6 @@
 <link href="./css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="file">
 <nav role="navigation">
   <div id="project-navigation">
@@ -61,6 +59,9 @@
 
   <ul class="link-list" role="directory">
     <li><a href="#label-Release+History">Release History</a>
+    <li><a href="#label-3.2.3+-2F+2022-05-22">3.2.3 / 2022-05-22</a>
+    <li><a href="#label-3.2.2+-2F+2022-01-15">3.2.2 / 2022-01-15</a>
+    <li><a href="#label-3.2.1+-2F+2020-11-05">3.2.1 / 2020-11-05</a>
     <li><a href="#label-3.2.0+-2F+2020-05-09+Charlie+Savage">3.2.0 / 2020-05-09 Charlie Savage</a>
     <li><a href="#label-3.1.0+-2F+2018-02-03+Charlie+Savage">3.1.0 / 2018-02-03 Charlie Savage</a>
     <li><a href="#label-3.0.0+-2F+2017-02-07+Charlie+Savage">3.0.0 / 2017-02-07 Charlie Savage</a>
@@ -138,17 +139,14 @@
 
 
   <div id="project-metadata">
-    <div id="fileindex-section" class="nav-section">
+    
+<div id="fileindex-section" class="nav-section">
   <h3>Pages</h3>
 
   <ul class="link-list">
-  
     <li><a href="./HISTORY.html">HISTORY</a>
-  
     <li><a href="./LICENSE.html">LICENSE</a>
-  
     <li><a href="./README_rdoc.html">README</a>
-  
   </ul>
 </div>
 
@@ -159,13 +157,50 @@
 
 <h1 id="label-Release+History">Release History<span><a href="#label-Release+History">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
+<h2 id="label-3.2.3+-2F+2022-05-22">3.2.3 / 2022-05-22<span><a href="#label-3.2.3+-2F+2022-05-22">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Change some getter methods to instance variables with attr_accessors for easier debuggability (David Hansen)</p>
+</li><li>
+<p>Add a number of tests related to schemas  (David Hansen)</p>
+</li><li>
+<p>Add schema.imported_elements so we can find imported elements (David Hansen)</p>
+</li><li>
+<p>Fix segfault under windows when dereferencing a pre-existing error where the node has already been freed (David Hansen)</p>
+</li><li>
+<p>Update to change name from imported_elements to imported_ns_elements and return a hash of hashes for namespaced elements (David Hansen)</p>
+</li><li>
+<p>Only call xmlGetFeaturesList if LIBXML_LEGACY_ENABLED is defined. Most distros still ship libxml2 with legacy features enabled, but this will change (Nick Wellnhofer)</p>
+</li><li>
+<p>Update GitHub Actions to use ruby/setup-ruby (Greg)</p>
+</li><li>
+<p>Fix memory leak in rxml_node_path, node.path (vovanmozg)</p>
+</li></ul>
+
+<h2 id="label-3.2.2+-2F+2022-01-15">3.2.2 / 2022-01-15<span><a href="#label-3.2.2+-2F+2022-01-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Switch to Github actions for CI/CD (Greg)</p>
+</li><li>
+<p>Test fixes (Greg, Sergio Durigan Junior)</p>
+</li><li>
+<p>Fix typo on test/test_sax_parser.rb (Sergio Durigan Junior)</p>
+</li><li>
+<p>Update homepage in gemspec (Pirate Praveen Arimbrathodiyil)</p>
+</li></ul>
+
+<h2 id="label-3.2.1+-2F+2020-11-05">3.2.1 / 2020-11-05<span><a href="#label-3.2.1+-2F+2020-11-05">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix incorrect handling of encodings when using XMLWriter.io (Charlie Savage)</p>
+</li><li>
+<p>Clean up <a href="README_rdoc.html">README</a>  (Richard Michael)</p>
+</li></ul>
+
 <h2 id="label-3.2.0+-2F+2020-05-09+Charlie+Savage">3.2.0 / 2020-05-09 Charlie Savage<span><a href="#label-3.2.0+-2F+2020-05-09+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
 <p>Fix crash when creating an empty DTD</p>
 </li><li>
 <p>Modernize tests to use Bundler to load gem</p>
 </li><li>
-<p>Add libxml-ruby.rb file so gem loads in expted way.</p>
+<p>Add libxml-ruby.rb file so gem loads in expected way.</p>
 </li><li>
 <p>Add support for xmlSaveNoEmptyTags.</p>
 </li><li>
@@ -220,7 +255,7 @@
 
 <h2 id="label-2.9.0+-2F+2016-06-13+Charlie+Savage">2.9.0 / 2016-06-13 Charlie Savage<span><a href="#label-2.9.0+-2F+2016-06-13+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Revamp libxml-ruby&#39;s memory management to not cause crashes when used with Nokogiri (James Laird-Wah)</p>
+<p>Revamp libxml-ruby’s memory management to not cause crashes when used with Nokogiri (James Laird-Wah)</p>
 </li><li>
 <p>Fix garbage collection issue that sometimes caused the library to hang (Charlie Savage)</p>
 </li><li>
@@ -234,7 +269,7 @@
 </li><li>
 <p>Add “hanna_gudao” gem and add “rake-compiler” to develpoment dependencies (Robert Haines)</p>
 </li><li>
-<p>Use Process.getrlimit instead of `ulimit` in the tests (Robert Haines)</p>
+<p>Use Process.getrlimit instead of ‘ulimit` in the tests (Robert Haines)</p>
 </li><li>
 <p>Build on smartos (Steven Williamson)</p>
 </li><li>
@@ -262,7 +297,7 @@
 
 <h2 id="label-2.7.0+-2F+2013-08-13+Charlie+Savage">2.7.0 / 2013-08-13 Charlie Savage<span><a href="#label-2.7.0+-2F+2013-08-13+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Don&#39;t call rb_warning in GC mark function (Dirkjan Bussink)</p>
+<p>Don’t call rb_warning in GC mark function (Dirkjan Bussink)</p>
 </li><li>
 <p>Set libxml error handler when a libxml-ruby error handler is set (Geoffrey Giesemann)</p>
 </li><li>
@@ -332,7 +367,7 @@
 
 <h2 id="label-2.3.1+-2F+2012-03-20+Charlie+Savage">2.3.1 / 2012-03-20 Charlie Savage<span><a href="#label-2.3.1+-2F+2012-03-20+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Yanked - didn&#39;t fix the OSX canonicalize issue</p>
+<p>Yanked - didn’t fix the OSX canonicalize issue</p>
 </li></ul>
 
 <h2 id="label-2.3.0+-2F+2012-03-18+Charlie+Savage">2.3.0 / 2012-03-18 Charlie Savage<span><a href="#label-2.3.0+-2F+2012-03-18+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
@@ -357,11 +392,11 @@
 
 <p>Fixes GitHub issue #30.</p>
 <ul><li>
-<p>Added Parser::Context#close and HTMLParser::Context#close methods that allow the underlying io stream (file, string, etc) to be closed.  Once a parser is done parsing its data, it now calls one of these methods. This means that if you parse thousands of files at the same time, without running Ruby&#39;s garbage colllector, you won&#39;t get a too many files open error.  Fixes GitHub issue #29.</p>
+<p>Added Parser::Context#close and HTMLParser::Context#close methods that allow the underlying io stream (file, string, etc) to be closed.  Once a parser is done parsing its data, it now calls one of these methods. This means that if you parse thousands of files at the same time, without running Ruby’s garbage colllector, you won’t get a too many files open error.  Fixes GitHub issue #29.</p>
 </li><li>
 <p>Fixed bug where Node#inner_xml caused an error when it had no child nodes. Fixes GitHub issues #31</p>
 </li><li>
-<p>Don&#39;t require &#39;rake&#39; in the gemspec to avoid annoying Bundler bugs</p>
+<p>Don’t require ‘rake’ in the gemspec to avoid annoying Bundler bugs</p>
 </li></ul>
 
 <h2 id="label-2.2.1+-2F+2011-08-13+Charlie+Savage">2.2.1 / 2011-08-13 Charlie Savage<span><a href="#label-2.2.1+-2F+2011-08-13+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
@@ -394,7 +429,7 @@
 </li><li>
 <p>Extracted rxml_xpath_to_value from rxml_xpath_context_find (Jens Wille).</p>
 </li><li>
-<p>Adapted rxml_xpath_from_value from Gregoire Lejeune&#39;s ruby-xslt library, see <a href="https://github.com/glejeune/ruby-xslt">github.com/glejeune/ruby-xslt</a> (Jens Wille).</p>
+<p>Adapted rxml_xpath_from_value from Gregoire Lejeune’s ruby-xslt library, see <a href="https://github.com/glejeune/ruby-xslt">github.com/glejeune/ruby-xslt</a> (Jens Wille).</p>
 </li><li>
 <p>Allow calling find on nodes returned from Reader (Charlie Savage).</p>
 </li><li>
@@ -468,7 +503,7 @@
 </li><li>
 <p>gem mislav-hanna does not exist; use hanna.</p>
 </li><li>
-<p>rake rdoc &#39;depends&#39; on hanna; no need of RDOCOPTS</p>
+<p>rake rdoc ‘depends’ on hanna; no need of RDOCOPTS</p>
 </li><li>
 <p>Point to the github issue tracker instead of Ruby Forge</p>
 </li><li>
@@ -498,9 +533,9 @@
 </li><li>
 <p>Add api to allow setting of attribute namespaces.  Fixes issue #10 (Charlie Savage).</p>
 </li><li>
-<p>Remove old hack to call the on_error method.  This hack isn&#39;t needed anymore since a better workaround was put in place in the parser context. Fixes This fixes issue #12  (Charlie Savage).</p>
+<p>Remove old hack to call the on_error method.  This hack isn’t needed anymore since a better workaround was put in place in the parser context. Fixes This fixes issue #12  (Charlie Savage).</p>
 </li><li>
-<p>Remove references to passing blocks to validation functions.  The blocks are no longer called since the bindings use libxml&#39;s structured error handling.  See issue #6 (Charlie Savage).</p>
+<p>Remove references to passing blocks to validation functions.  The blocks are no longer called since the bindings use libxml’s structured error handling.  See issue #6 (Charlie Savage).</p>
 </li><li>
 <p>Fix up comment in Document and Node.  See issue #8 (Charlie Savage).</p>
 </li><li>
@@ -536,9 +571,9 @@
 
 <h2 id="label-1.1.3+-2F+2009-03-18+Charlie+Savage">1.1.3 / 2009-03-18 Charlie Savage<span><a href="#label-1.1.3+-2F+2009-03-18+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Improve performance 10 to 20% by turning on libxml2&#39;s dictionary feature that allows parsers to reuse previously parsed strings.</p>
+<p>Improve performance 10 to 20% by turning on libxml2’s dictionary feature that allows parsers to reuse previously parsed strings.</p>
 </li><li>
-<p>Fix XML::Node#remove! to work correctly with libxml&#39;s dictionary feature.</p>
+<p>Fix XML::Node#remove! to work correctly with libxml’s dictionary feature.</p>
 </li><li>
 <p>Correctly set up parser context options.</p>
 </li><li>
@@ -567,7 +602,7 @@
 <ul><li>
 <p>Fix bug caused by the mark function being called on partially initialized attributes.</p>
 </li><li>
-<p>Revert back to libxml2&#39;s internal memory manager.</p>
+<p>Revert back to libxml2’s internal memory manager.</p>
 </li></ul>
 
 <h2 id="label-1.0.0+-2F+2009-03-05+Charlie+Savage">1.0.0 / 2009-03-05 Charlie Savage<span><a href="#label-1.0.0+-2F+2009-03-05+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
@@ -600,7 +635,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 </li><li>
 <p>Bug fix - If reader.node is NULL, return nil instead of crashing (Charlie Savage)</p>
 </li><li>
-<p>Bug fix - Dtd&#39;s owned by documents were freed twice in some circumstances (Joe Khoobyar).</p>
+<p>Bug fix - Dtd’s owned by documents were freed twice in some circumstances (Joe Khoobyar).</p>
 </li><li>
 <p>Bug fix - Fix output escaping on attributes nodes (Joe Khoobyar).</p>
 </li><li>
@@ -613,9 +648,9 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 </li><li>
 <p>Updated all APIs to use the encoding constants defined in XML::Encoding versus string values.  This API change is not backwards compatible.</p>
 </li><li>
-<p>Added support for attribute declarations in DTD&#39;s via the new XML::AttrDecl class (Len Lattanzi)</p>
+<p>Added support for attribute declarations in DTD’s via the new XML::AttrDecl class (Len Lattanzi)</p>
 </li><li>
-<p>Support libxml&#39;s content escaping capabilities for text nodes by wrapping libxml&#39;s “xmlStringText” and “xmlStringTextNoenc” (Joe Khoobyar).</p>
+<p>Support libxml’s content escaping capabilities for text nodes by wrapping libxml’s “xmlStringText” and “xmlStringTextNoenc” (Joe Khoobyar).</p>
 </li><li>
 <p>Updated XML::Reader#read API to return true if a node was read, false if node was not read and raises an exception on an error. Previously read returned 1 if a node was read, 0 if a node was not read and -1 for an error.  This change is not backwards compatible, but provides a more natural interface for Ruby by allowing code like this:</p>
 
@@ -636,14 +671,14 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 </li><li>
 <p>Fixed rdocs.</p>
 </li><li>
-<p>Don&#39;t override libxml&#39;s default settings for entity substitution and loading external DTDs.  This may break some code - you may need to add in a call to XML.default_substitute_entities = true or XML.default_load_external_dtd = true.</p>
+<p>Don’t override libxml’s default settings for entity substitution and loading external DTDs.  This may break some code - you may need to add in a call to XML.default_substitute_entities = true or XML.default_load_external_dtd = true.</p>
 </li></ul>
 
 <h2 id="label-0.9.7+-2F+2008-12-08+Charlie+Savage">0.9.7 / 2008-12-08 Charlie Savage<span><a href="#label-0.9.7+-2F+2008-12-08+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
 <p>Added SAX2 support.  SAX handlers now define two new callbacks, on_start_element_ns and on_end_element_ns methods.  These new callbacks support namespaces, making them superior to the older callbacks on_start_element and on_end_element methods.  The old callbacks are still supported, but may be deprecated in the future depending on community feedback.</p>
 </li><li>
-<p>Added SAX support for libxml&#39;s structured error handling. That menas sax handlers now define a new callback, on_error, which takes one parameter, an instance of XML::Error.  The older on_parser_error, on_parser_warning and on_parser_fatal_error callbacks are no longer suported so you must port your code. Note that the older callbacks took one string parameter, instead of an XML::Error object.</p>
+<p>Added SAX support for libxml’s structured error handling. That menas sax handlers now define a new callback, on_error, which takes one parameter, an instance of XML::Error.  The older on_parser_error, on_parser_warning and on_parser_fatal_error callbacks are no longer suported so you must port your code. Note that the older callbacks took one string parameter, instead of an XML::Error object.</p>
 </li><li>
 <p>Experimental work-around for libxml error handling bug - see <a href="http://mail.gnome.org/archives/xml/2008-December/msg00014.html">mail.gnome.org/archives/xml/2008-December/msg00014.html</a> for more information.</p>
 </li><li>
@@ -656,7 +691,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 <ul><li>
 <p>Refactored namespace handling.  The existing, and inconsistent, namespace methods defined on XML::Node have been deprecated.</p>
 
-<p>They have been replaced by a the new XML::Namespaces class. Use this class to inspect a node&#39;s namespace, its default namespace, its namespace definitions and which namespaces are in scope.  It can be accessed via the the XML::Node#namespaces method.</p>
+<p>They have been replaced by a the new XML::Namespaces class. Use this class to inspect a node’s namespace, its default namespace, its namespace definitions and which namespaces are in scope.  It can be accessed via the the XML::Node#namespaces method.</p>
 </li><li>
 <p>Rationalized XML::Document#save, XML::Document#to_s and XML::Node#to_s to take an optional hash table of parameters  that control how output is generated. Supported parameters include setting indentation on or off, the indentation level and the output encoding.  This is an API change and may break existing calls to XML::Document#save.  However, the previous API was broken - setting the encoding resulted in an error so its unlikely anyone is using it.</p>
 </li><li>
@@ -715,7 +750,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <h2 id="label-0.9.1+-2F+2008-11-18+Charlie+Savage">0.9.1 / 2008-11-18 Charlie Savage<span><a href="#label-0.9.1+-2F+2008-11-18+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Expose LibXML&#39;s encoding support via a new Encoding object.</p>
+<p>Expose LibXML’s encoding support via a new Encoding object.</p>
 </li><li>
 <p>Revamp error handling to be much easier to use.  Errors are now wrapped by the new XML::Error class and are thrown as exceptions when it is appropriate.</p>
 </li><li>
@@ -740,7 +775,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <h2 id="label-0.8.2+-2F+2008-07-21+Charlie+Savage">0.8.2 / 2008-07-21 Charlie Savage<span><a href="#label-0.8.2+-2F+2008-07-21+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>To use <a href="LibXML.html"><code>LibXML</code></a> you can either require &#39;xml&#39; or require &#39;libxml&#39;.  The differences is that require &#39;xml&#39; mixes the <a href="LibXML.html"><code>LibXML</code></a> module into the global namespace, thereby allowing you to write code such as document = XML::Document.new.  Note that this is different  from 0.8.0 and 0.8.1 and may require updating your code.</p>
+<p>To use <a href="LibXML.html"><code>LibXML</code></a> you can either require ‘xml’ or require ‘libxml’.  The differences is that require ‘xml’ mixes the <a href="LibXML.html"><code>LibXML</code></a> module into the global namespace, thereby allowing you to write code such as document = XML::Document.new.  Note that this is different  from 0.8.0 and 0.8.1 and may require updating your code.</p>
 </li><li>
 <p>Support RelaxNG validation (thanks to Morus Walter)</p>
 </li><li>
@@ -752,7 +787,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 </li><li>
 <p>Improved Windows support - libxml-ruby should now work out of the box.</p>
 </li><li>
-<p>Improved Windows support - turned on libxml&#39;s zlib and iconv support.</p>
+<p>Improved Windows support - turned on libxml’s zlib and iconv support.</p>
 </li></ul>
 
 <h2 id="label-0.8.1+-2F+2008-07-09+Charlie+Savage">0.8.1 / 2008-07-09 Charlie Savage<span><a href="#label-0.8.1+-2F+2008-07-09+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
@@ -804,7 +839,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <h2 id="label-0.6.0+-2F+2008-07-01+Charlie+Savage">0.6.0 / 2008-07-01 Charlie Savage<span><a href="#label-0.6.0+-2F+2008-07-01+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>Fixed memory allocation errors in Windows.  On Windows, it is essential that the same library that allocates memory must free it. Thus ALLOC calls must be matched to ruby_xfree calls, which they were not.  In addition, in one case Ruby was allocating memory to be freed by libxml.  On Windows, that&#39;s a segmentation fault.  On Linux it might fly, but still seems like a bad idea.</p>
+<p>Fixed memory allocation errors in Windows.  On Windows, it is essential that the same library that allocates memory must free it. Thus ALLOC calls must be matched to ruby_xfree calls, which they were not.  In addition, in one case Ruby was allocating memory to be freed by libxml.  On Windows, that’s a segmentation fault.  On Linux it might fly, but still seems like a bad idea.</p>
 </li><li>
 <p>Fixed segmentation fault in xml reader expand (same xml tree freed twice)</p>
 </li><li>
@@ -812,11 +847,11 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 </li><li>
 <p>Cleaned up a number of compiler warnings</p>
 </li><li>
-<p>Renamed libxml_so.so to libxml_ruby.so (same for xslt).  That wasn&#39;t actually my original intention, but um, it kind of sort of happened.  It should not be noticeable from an end-user perspective.</p>
+<p>Renamed libxml_so.so to libxml_ruby.so (same for xslt).  That wasn’t actually my original intention, but um, it kind of sort of happened.  It should not be noticeable from an end-user perspective.</p>
 </li><li>
 <p>Added rake files for building with MingW</p>
 </li><li>
-<p>Added rake files for packing gems.  Note that I did this outside the existing rake tasks because I didn&#39;t see how they were actually building the gems.</p>
+<p>Added rake files for packing gems.  Note that I did this outside the existing rake tasks because I didn’t see how they were actually building the gems.</p>
 </li><li>
 <p>Cleaned up the tests and added a few more based on bug reports from the Tracker and mailing list.</p>
 </li><li>
@@ -825,14 +860,14 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <h3 id="label-2007-11-16+-22Dan+Janowski-22+-3Cdanj+at+3skel.com-3E">2007-11-16 “Dan Janowski” &lt;danj at 3skel.com&gt;<span><a href="#label-2007-11-16+-22Dan+Janowski-22+-3Cdanj+at+3skel.com-3E">&para;</a> <a href="#top">&uarr;</a></span></h3>
 <ul><li>
-<p>Merged Dan&#39;s MEM2 branch to trunk.</p>
+<p>Merged Dan’s MEM2 branch to trunk.</p>
 </li></ul>
 
 <h2 id="label-0.5.3+-2F">0.5.3 /<span><a href="#label-0.5.3+-2F">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <h3 id="label-2007-11-16+-22Dan+Janowski-22+-3Cdanj+at+3skel.com-3E">2007-11-16 “Dan Janowski” &lt;danj at 3skel.com&gt;<span><a href="#label-2007-11-16+-22Dan+Janowski-22+-3Cdanj+at+3skel.com-3E">&para;</a> <a href="#top">&uarr;</a></span></h3>
 <ul><li>
-<p>Merged Dan&#39;s MEM2 branch to trunk.</p>
+<p>Merged Dan’s MEM2 branch to trunk.</p>
 </li></ul>
 
 <h2 id="label-0.5.2+-2F+2007-10-10">0.5.2 / 2007-10-10<span><a href="#label-0.5.2+-2F+2007-10-10">&para;</a> <a href="#top">&uarr;</a></span></h2>
@@ -974,7 +1009,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

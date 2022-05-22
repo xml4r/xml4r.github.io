@@ -21,8 +21,6 @@
 <link href="../../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,34 +57,27 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link">cXMLParserContext
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-file">::file</a>
-    
     <li ><a href="#method-c-io">::io</a>
-    
     <li ><a href="#method-c-string">::string</a>
-    
     <li ><a href="#method-i-close">#close</a>
-    
     <li ><a href="#method-i-disable_cdata-3D">#disable_cdata=</a>
-    
     <li ><a href="#method-i-options-3D">#options=</a>
-    
   </ul>
 </div>
 
@@ -104,48 +95,32 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-file" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::HTMLParser::Context.file(file) &rarr; XML::HTMLParser::Context
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new parser context based on the specified file or uri.</p>
 
 <p>Parameters:</p>
 
 <pre>file - A filename or uri.</pre>
-          
-          
 
-          
           <div class="method-source-code" id="file-source">
             <pre>static VALUE rxml_html_parser_context_file(VALUE klass, VALUE file)
 {
@@ -162,40 +137,26 @@
   return rxml_html_parser_context_wrap(ctxt);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-io" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::HTMLParser::Context.io(io) &rarr; XML::HTMLParser::Context
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new parser context based on the specified io object.</p>
 
 <p>Parameters:</p>
 
 <pre>io - A ruby IO object.</pre>
-          
-          
 
-          
           <div class="method-source-code" id="io-source">
             <pre>static VALUE rxml_html_parser_context_io(VALUE klass, VALUE io)
 {
@@ -240,40 +201,26 @@
   return result;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-string" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::HTMLParser::Context.string(string) &rarr; XML::HTMLParser::Context
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new parser context based on the specified string.</p>
 
 <p>Parameters:</p>
 
 <pre>string - A string that contains the data to parse.</pre>
-          
-          
 
-          
           <div class="method-source-code" id="string-source">
             <pre>static VALUE rxml_html_parser_context_string(VALUE klass, VALUE string)
 {
@@ -301,44 +248,29 @@
   return rxml_html_parser_context_wrap(ctxt);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-close" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             close &rarr; nil
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Closes the underlying input streams.  This is useful when parsing a large amount of files and you want to close the files without relying on Ruby&#39;s garbage collector to run.</p>
-          
-          
+          <p>Closes the underlying input streams.  This is useful when parsing a large amount of files and you want to close the files without relying on Ruby’s garbage collector to run.</p>
 
-          
           <div class="method-source-code" id="close-source">
             <pre>static VALUE rxml_html_parser_context_close(VALUE self)
 {
@@ -353,36 +285,22 @@
   return Qnil;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-disable_cdata-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             disable_cdata = (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Control whether the CDATA nodes will be created in this context.</p>
-          
-          
 
-          
           <div class="method-source-code" id="disable_cdata-3D-source">
             <pre>static VALUE rxml_html_parser_context_disable_cdata_set(VALUE self, VALUE value)
 {
@@ -401,43 +319,27 @@
   return value;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-options-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             options = XML::Parser::Options::NOENT |
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Parser::Options::NOCDATA
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Provides control over the execution of a parser.  Valid values  are the constants defined on <a href="../Parser/Options.html"><code>XML::Parser::Options</code></a>.  Multiple options can be combined by using Bitwise OR (|).</p>
-          
-          
 
-          
           <div class="method-source-code" id="options-3D-source">
             <pre>static VALUE rxml_html_parser_context_options_set(VALUE self, VALUE options)
 {
@@ -460,25 +362,20 @@
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -21,8 +21,6 @@
 <link href="../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,106 +57,63 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link"><a href="../../Object.html">Object</a>
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-document">::document</a>
-    
     <li ><a href="#method-c-file">::file</a>
-    
     <li ><a href="#method-c-io">::io</a>
-    
     <li ><a href="#method-c-new">::new</a>
-    
     <li ><a href="#method-c-string">::string</a>
-    
     <li ><a href="#method-i-canonicalize">#canonicalize</a>
-    
     <li ><a href="#method-i-child">#child</a>
-    
     <li ><a href="#method-i-child-3F">#child?</a>
-    
     <li ><a href="#method-i-compression">#compression</a>
-    
     <li ><a href="#method-i-compression-3D">#compression=</a>
-    
     <li ><a href="#method-i-compression-3F">#compression?</a>
-    
     <li ><a href="#method-i-context">#context</a>
-    
     <li ><a href="#method-i-debug">#debug</a>
-    
     <li ><a href="#method-i-encoding">#encoding</a>
-    
     <li ><a href="#method-i-encoding-3D">#encoding=</a>
-    
     <li ><a href="#method-i-find">#find</a>
-    
     <li ><a href="#method-i-find_first">#find_first</a>
-    
     <li ><a href="#method-i-import">#import</a>
-    
     <li ><a href="#method-i-last">#last</a>
-    
     <li ><a href="#method-i-last-3F">#last?</a>
-    
     <li ><a href="#method-i-next">#next</a>
-    
     <li ><a href="#method-i-next-3F">#next?</a>
-    
     <li ><a href="#method-i-node_type">#node_type</a>
-    
     <li ><a href="#method-i-node_type_name">#node_type_name</a>
-    
     <li ><a href="#method-i-order_elements-21">#order_elements!</a>
-    
     <li ><a href="#method-i-parent">#parent</a>
-    
     <li ><a href="#method-i-parent-3F">#parent?</a>
-    
     <li ><a href="#method-i-prev">#prev</a>
-    
     <li ><a href="#method-i-prev-3F">#prev?</a>
-    
     <li ><a href="#method-i-rb_encoding">#rb_encoding</a>
-    
     <li ><a href="#method-i-root">#root</a>
-    
     <li ><a href="#method-i-root-3D">#root=</a>
-    
     <li ><a href="#method-i-save">#save</a>
-    
     <li ><a href="#method-i-standalone-3F">#standalone?</a>
-    
     <li ><a href="#method-i-to_s">#to_s</a>
-    
     <li ><a href="#method-i-url">#url</a>
-    
     <li ><a href="#method-i-validate">#validate</a>
-    
     <li ><a href="#method-i-validate_relaxng">#validate_relaxng</a>
-    
     <li ><a href="#method-i-validate_schema">#validate_schema</a>
-    
     <li ><a href="#method-i-version">#version</a>
-    
     <li ><a href="#method-i-xhtml-3F">#xhtml?</a>
-    
     <li ><a href="#method-i-xinclude">#xinclude</a>
-    
   </ul>
 </div>
 
@@ -221,117 +176,75 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
     <section class="constants-list">
       <header>
         <h3>Constants</h3>
       </header>
       <dl>
-      
         <dt id="XML_C14N_1_0">XML_C14N_1_0
-        
         <dd><p>Original C14N 1.0 spec</p>
-        
-      
         <dt id="XML_C14N_1_1">XML_C14N_1_1
-        
         <dd><p>C14N 1.1 spec</p>
-        
-      
         <dt id="XML_C14N_EXCLUSIVE_1_0">XML_C14N_EXCLUSIVE_1_0
-        
         <dd><p>Exclusive C14N 1.0 spec</p>
-        
-      
       </dl>
     </section>
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-document" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.document(document) &rarr; XML::Document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new document based on the specified document.</p>
 
 <p>Parameters:</p>
 
 <pre>document - A preparsed document.</pre>
-          
-          
 
-          
           <div class="method-source-code" id="document-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">14</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">document</span>(<span class="ruby-identifier">value</span>)
 <span class="line-num">15</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">value</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">16</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-file" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.file(path) &rarr; XML::Document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.file(path, :encoding &rarr; XML::Encoding::UTF_8,
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Document
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new document from the specified file or uri.</p>
 
 <p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
@@ -341,62 +254,42 @@
 options - Parser options.  Valid values are the constants defined on
           XML::Parser::Options.  Mutliple options can be combined
           by using Bitwise OR (|).</pre>
-          
-          
 
-          
           <div class="method-source-code" id="file-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">33</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})
 <span class="line-num">34</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">35</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-io" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.io(io) &rarr; XML::Document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.io(io, :encoding &rarr; XML::Encoding::UTF_8,
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             :options &rarr; XML::Parser::Options::NOENT
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new document from the specified io object.</p>
 
 <p>Parameters:</p>
@@ -408,46 +301,29 @@ encoding - The document encoding, defaults to nil. Valid values
 options - Parser options.  Valid values are the constants defined on
           XML::Parser::Options.  Mutliple options can be combined
           by using Bitwise OR (|).</pre>
-          
-          
 
-          
           <div class="method-source-code" id="io-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">54</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">io</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})
 <span class="line-num">55</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">56</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-new" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.initialize(xml_version = 1.0) &rarr; document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Initializes a new <a href="Document.html"><code>XML::Document</code></a>, optionally specifying the <a href="../XML.html"><code>XML</code></a> version.</p>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_document_initialize(int argc, VALUE *argv, VALUE self)
 {
@@ -476,52 +352,35 @@ options - Parser options.  Valid values are the constants defined on
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-string" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.string(string) &rarr; XML::Document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Document.string(string, :encoding &rarr; XML::Encoding::UTF_8,
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             :options &rarr; XML::Parser::Options::NOENT
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new document from the specified string.</p>
 
 <p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
@@ -532,51 +391,35 @@ encoding - The document encoding, defaults to nil. Valid values
 options  - Parser options.  Valid values are the constants defined on
            XML::Parser::Options.  Mutliple options can be combined
            by using Bitwise OR (|).</pre>
-          
-          
 
-          
           <div class="method-source-code" id="string-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">75</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})
 <span class="line-num">76</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">77</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-canonicalize" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">canonicalize</span><span
             class="method-args">(p1 = v1)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
-          
 
-          
           <div class="method-source-code" id="canonicalize-source">
             <pre>static VALUE
 rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
@@ -724,36 +567,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
   return result;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-child" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             child &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Get this document&#39;s child node.</p>
-          
-          
+          <p>Get this document’s child node.</p>
 
-          
           <div class="method-source-code" id="child-source">
             <pre>static VALUE rxml_document_child_get(VALUE self)
 {
@@ -766,36 +595,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
   return rxml_node_wrap(xdoc-&gt;children);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-child-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             child? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether this document has a child node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="child-3F-source">
             <pre>static VALUE rxml_document_child_q(VALUE self)
 {
@@ -808,36 +623,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
     return (Qtrue);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-compression" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             compression &rarr; num
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this document&#39;s compression mode identifier.</p>
-          
-          
+          <p>Obtain this document’s compression mode identifier.</p>
 
-          
           <div class="method-source-code" id="compression-source">
             <pre>static VALUE rxml_document_compression_get(VALUE self)
 {
@@ -858,36 +659,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 #endif
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-compression-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             compression = num
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Set this document&#39;s compression mode.</p>
-          
-          
+          <p>Set this document’s compression mode.</p>
 
-          
           <div class="method-source-code" id="compression-3D-source">
             <pre>static VALUE rxml_document_compression_set(VALUE self, VALUE num)
 {
@@ -918,36 +705,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 #endif
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-compression-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             compression? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether this document is compressed.</p>
-          
-          
 
-          
           <div class="method-source-code" id="compression-3F-source">
             <pre>static VALUE rxml_document_compression_q(VALUE self)
 {
@@ -966,38 +739,24 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 #endif
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-context" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             context(namespaces=nil) &rarr; XPath::Context
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Returns a new XML::XPathContext for the document.</p>
 
 <p><a href="Namespaces.html"><code>Namespaces</code></a> is an optional array of XML::NS objects</p>
-          
-          
 
-          
           <div class="method-source-code" id="context-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">85</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">context</span>(<span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
@@ -1008,36 +767,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 <span class="line-num">90</span>   <span class="ruby-identifier">context</span>
 <span class="line-num">91</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-debug" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             debug &rarr; true|false
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Print libxml debugging information to stdout. Requires that libxml was compiled with debugging enabled.</p>
-          
-          
 
-          
           <div class="method-source-code" id="debug-source">
             <pre>static VALUE rxml_document_debug(VALUE self)
 {
@@ -1052,36 +797,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 #endif
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-encoding" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             encoding &rarr; XML::Encoding::UTF_8
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Returns the <a href="../../LibXML.html"><code>LibXML</code></a> encoding constant specified by this document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="encoding-source">
             <pre>static VALUE rxml_document_encoding_get(VALUE self)
 {
@@ -1093,36 +824,22 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
   return INT2NUM(xmlParseCharEncoding(xencoding));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-encoding-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             encoding = XML::Encoding::UTF_8
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Set the encoding for this document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="encoding-3D-source">
             <pre>static VALUE rxml_document_encoding_set(VALUE self, VALUE encoding)
 {
@@ -1138,31 +855,20 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-find" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             find(xpath, nslist=nil) &rarr; XML::XPath::Object
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Return the nodes matching the specified xpath expression,  optionally using the specified namespace.  For more  information about working with namespaces, please refer to the <a href="XPath.html"><code>XML::XPath</code></a> documentation.</p>
 
 <p>Parameters:</p>
@@ -1175,7 +881,7 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
 <pre class="ruby"><span class="ruby-identifier">document</span>.<span class="ruby-identifier">find</span>(<span class="ruby-string">&#39;/foo&#39;</span>, <span class="ruby-string">&#39;xlink:http://www.w3.org/1999/xlink&#39;</span>)
 </pre>
 
-<p>IMPORTANT - The returned XML::Node::Set must be freed before its associated document.  In a running Ruby program this will happen automatically via Ruby&#39;s mark and sweep garbage collector. However, if the program exits, Ruby does not guarantee the order in which objects are freed (see <a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700">blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700</a>). As a result, the associated document may be freed before the node list, which will cause a segmentation fault. To avoid this, use the following (non-ruby like) coding style:</p>
+<p>IMPORTANT - The returned XML::Node::Set must be freed before its associated document.  In a running Ruby program this will happen automatically via Ruby’s mark and sweep garbage collector. However, if the program exits, Ruby does not guarantee the order in which objects are freed (see <a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700">blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-core/17700</a>). As a result, the associated document may be freed before the node list, which will cause a segmentation fault. To avoid this, use the following (non-ruby like) coding style:</p>
 
 <pre>nodes = doc.find(&#39;/header&#39;)
 nodes.each do |node|
@@ -1183,81 +889,52 @@ nodes.each do |node|
 end</pre>
 
 <p>#  nodes = nil #  GC.start</p>
-          
-          
 
-          
           <div class="method-source-code" id="find-source">
             <pre>    <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">122</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
 <span class="line-num">123</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">context</span>(<span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>)
 <span class="line-num">124</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-find_first" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">find_first</span><span
             class="method-args">(xpath, nslist = nil)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Return the first node matching the specified xpath expression. For more information, please refer to the documentation for <a href="Document.html#method-i-find"><code>XML::Document#find</code></a>.</p>
-          
-          
 
-          
           <div class="method-source-code" id="find_first-source">
             <pre>    <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">129</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_first</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span> = <span class="ruby-keyword">nil</span>)
 <span class="line-num">130</span>   <span class="ruby-identifier">find</span>(<span class="ruby-identifier">xpath</span>, <span class="ruby-identifier">nslist</span>).<span class="ruby-identifier">first</span>
 <span class="line-num">131</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-import" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             import(node) &rarr; XML::Node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a copy of the node that can be inserted into the current document.</p>
 
 <p>IMPORTANT - The returned node MUST be inserted into the document. This is because the returned node refereces internal <a href="../../LibXML.html"><code>LibXML</code></a> data structures owned by the document.  Therefore, if the document is is freed before the the node is freed a segmentation fault will occur.</p>
-          
-          
 
-          
           <div class="method-source-code" id="import-source">
             <pre>static VALUE rxml_document_import(VALUE self, VALUE node)
 {
@@ -1275,36 +952,22 @@ end</pre>
   return rxml_node_wrap(xresult);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-last" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             last &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the last node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="last-source">
             <pre>static VALUE rxml_document_last_get(VALUE self)
 {
@@ -1318,36 +981,22 @@ end</pre>
   return rxml_node_wrap(xdoc-&gt;last);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-last-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             last? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether there is a last node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="last-3F-source">
             <pre>static VALUE rxml_document_last_q(VALUE self)
 {
@@ -1361,36 +1010,22 @@ end</pre>
     return (Qtrue);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-next" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             next &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the next node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="next-source">
             <pre>static VALUE rxml_document_next_get(VALUE self)
 {
@@ -1404,36 +1039,22 @@ end</pre>
   return rxml_node_wrap(xdoc-&gt;next);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-next-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             next? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether there is a next node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="next-3F-source">
             <pre>static VALUE rxml_document_next_q(VALUE self)
 {
@@ -1447,36 +1068,22 @@ end</pre>
     return (Qtrue);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-node_type" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             type &rarr; num
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this node&#39;s type identifier.</p>
-          
-          
+          <p>Obtain this node’s type identifier.</p>
 
-          
           <div class="method-source-code" id="node_type-source">
             <pre>static VALUE rxml_document_node_type(VALUE self)
 {
@@ -1485,33 +1092,21 @@ end</pre>
   return (INT2NUM(xnode-&gt;type));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-node_type_name" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">node_type_name</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
-          <p>Returns this node&#39;s type name </p>
-          
-          
+          <p>Returns this node’s type name </p>
 
-          
           <div class="method-source-code" id="node_type_name-source">
             <pre>    <span class="ruby-comment"># File lib/libxml/document.rb</span>
 <span class="line-num">134</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">node_type_name</span>
@@ -1527,36 +1122,22 @@ end</pre>
 <span class="line-num">144</span>   <span class="ruby-keyword">end</span>
 <span class="line-num">145</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-order_elements-21" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             order_elements!
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Call this routine to speed up <a href="XPath.html"><code>XPath</code></a> computation on static documents. This stamps all the element nodes with the document order.</p>
-          
-          
 
-          
           <div class="method-source-code" id="order_elements-21-source">
             <pre>static VALUE rxml_document_order_elements(VALUE self)
 {
@@ -1566,36 +1147,22 @@ end</pre>
   return LONG2FIX(xmlXPathOrderDocElems(xdoc));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-parent" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             parent &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the parent node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="parent-source">
             <pre>static VALUE rxml_document_parent_get(VALUE self)
 {
@@ -1609,36 +1176,22 @@ end</pre>
   return rxml_node_wrap(xdoc-&gt;parent);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-parent-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             parent? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether there is a parent node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="parent-3F-source">
             <pre>static VALUE rxml_document_parent_q(VALUE self)
 {
@@ -1652,36 +1205,22 @@ end</pre>
     return (Qtrue);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-prev" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             prev &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the previous node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="prev-source">
             <pre>static VALUE rxml_document_prev_get(VALUE self)
 {
@@ -1695,36 +1234,22 @@ end</pre>
   return rxml_node_wrap(xdoc-&gt;prev);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-prev-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             prev? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether there is a previous node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="prev-3F-source">
             <pre>static VALUE rxml_document_prev_q(VALUE self)
 {
@@ -1738,33 +1263,22 @@ end</pre>
     return (Qtrue);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-rb_encoding" class="method-detail ">
-        
         <div class="method-heading">
-          <span class="method-name">rb_encoding</span><span
-            class="method-args">()</span>
-          
+          <span class="method-callseq">
+            rb_encoding &rarr; Encoding
+          </span>
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
-          
-          
-          
+          <p>Returns the Ruby encoding specified by this document (available on Ruby 1.9.x and higher).</p>
 
-          
           <div class="method-source-code" id="rb_encoding-source">
             <pre>static VALUE rxml_document_rb_encoding_get(VALUE self)
 {
@@ -1776,36 +1290,22 @@ end</pre>
   return rb_enc_from_encoding(rbencoding);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-root" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             root &rarr; node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the root node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="root-source">
             <pre>static VALUE rxml_document_root_get(VALUE self)
 {
@@ -1821,36 +1321,22 @@ end</pre>
   return rxml_node_wrap(root);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-root-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             root = node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Set the root node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="root-3D-source">
             <pre>static VALUE rxml_document_root_set(VALUE self, VALUE node)
 {
@@ -1874,47 +1360,31 @@ end</pre>
   return node;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-save" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             save(filename) &rarr; int
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             save(filename, :indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; int
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Saves a document to a file.  You may provide an optional hash table to control how the string is generated.  Valid options are:</p>
 
 <p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
 
 <p>:encoding - Specifies the output encoding of the string.  It defaults to the original encoding of the document (see <a href="Document.html#method-i-encoding"><code>encoding</code></a>.  To override the orginal encoding, use one of the <a href="Encoding.html"><code>XML::Encoding</code></a> encoding constants.</p>
-          
-          
 
-          
           <div class="method-source-code" id="save-source">
             <pre>static VALUE rxml_document_save(int argc, VALUE *argv, VALUE self)
 {
@@ -1960,36 +1430,22 @@ end</pre>
   return (INT2NUM(length));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-standalone-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             standalone? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether this is a standalone document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="standalone-3F-source">
             <pre>static VALUE rxml_document_standalone_q(VALUE self)
 {
@@ -2002,47 +1458,31 @@ end</pre>
     return (Qfalse);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-to_s" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             to_s &rarr; &quot;string&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             to_s(:indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; &quot;string&quot;
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Converts a document, and all of its children, to a string representation. You may provide an optional hash table to control how the string is generated.  Valid options are:</p>
 
 <p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
 
 <p>:encoding - Specifies the output encoding of the string.  It defaults to XML::Encoding::UTF8.  To change it, use one of the <a href="Encoding.html"><code>XML::Encoding</code></a> encoding constants.</p>
-          
-          
 
-          
           <div class="method-source-code" id="to_s-source">
             <pre>static VALUE rxml_document_to_s(int argc, VALUE *argv, VALUE self)
 {
@@ -2082,36 +1522,22 @@ end</pre>
   return result;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-url" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             url &rarr; &quot;url&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this document&#39;s source URL, if any.</p>
-          
-          
+          <p>Obtain this document’s source URL, if any.</p>
 
-          
           <div class="method-source-code" id="url-source">
             <pre>static VALUE rxml_document_url_get(VALUE self)
 {
@@ -2124,36 +1550,22 @@ end</pre>
     return (rxml_new_cstr( xdoc-&gt;URL, NULL));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-validate" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             validate(dtd) &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Validate this document against the specified XML::DTD. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
-          
-          
 
-          
           <div class="method-source-code" id="validate-source">
             <pre>static VALUE rxml_document_validate_dtd(VALUE self, VALUE dtd)
 {
@@ -2178,36 +1590,22 @@ end</pre>
   }
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-validate_relaxng" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             validate_relaxng(relaxng)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Validate this document against the specified <a href="RelaxNG.html"><code>XML::RelaxNG</code></a>. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
-          
-          
 
-          
           <div class="method-source-code" id="validate_relaxng-source">
             <pre>static VALUE rxml_document_validate_relaxng(VALUE self, VALUE relaxng)
 {
@@ -2234,36 +1632,22 @@ end</pre>
   }
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-validate_schema" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             validate_schema(schema)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Validate this document against the specified <a href="Schema.html"><code>XML::Schema</code></a>. If the document is valid the method returns true.  Otherwise an exception is raised with validation information.</p>
-          
-          
 
-          
           <div class="method-source-code" id="validate_schema-source">
             <pre>static VALUE rxml_document_validate_schema(VALUE self, VALUE schema)
 {
@@ -2290,36 +1674,22 @@ end</pre>
   }
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-version" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             version &rarr; &quot;version&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the <a href="../XML.html"><code>XML</code></a> version specified by this document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="version-source">
             <pre>static VALUE rxml_document_version_get(VALUE self)
 {
@@ -2332,36 +1702,22 @@ end</pre>
     return (rxml_new_cstr( xdoc-&gt;version, NULL));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-xhtml-3F" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             xhtml? &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Determine whether this is an XHTML document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="xhtml-3F-source">
             <pre>static VALUE rxml_document_xhtml_q(VALUE self)
 {
@@ -2375,36 +1731,22 @@ end</pre>
     return (Qfalse);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-xinclude" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             xinclude &rarr; num
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Process xinclude directives in this document.</p>
-          
-          
 
-          
           <div class="method-source-code" id="xinclude-source">
             <pre>static VALUE rxml_document_xinclude(VALUE self)
 {
@@ -2431,25 +1773,20 @@ end</pre>
 #endif
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

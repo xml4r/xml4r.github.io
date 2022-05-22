@@ -21,8 +21,6 @@
 <link href="../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,34 +57,27 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link"><a href="../../Object.html">Object</a>
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-new">::new</a>
-    
     <li ><a href="#method-i-external_id">#external_id</a>
-    
     <li ><a href="#method-i-name">#name</a>
-    
     <li ><a href="#method-i-node_type">#node_type</a>
-    
     <li ><a href="#method-i-system_id">#system_id</a>
-    
     <li ><a href="#method-i-uri">#uri</a>
-    
   </ul>
 </div>
 
@@ -100,7 +91,7 @@
 
   <section class="description">
     
-<p>The <a href="Dtd.html"><code>XML::Dtd</code></a> class is used to prepare DTD&#39;s for validation of xml documents.</p>
+<p>The <a href="Dtd.html"><code>XML::Dtd</code></a> class is used to prepare DTD’s for validation of xml documents.</p>
 
 <p>DTDs can be created from a string or a pair of public and system identifiers. Once a <a href="Dtd.html"><code>Dtd</code></a> object is instantiated, an <a href="../XML.html"><code>XML</code></a> document can be validated by the <a href="Document.html#method-i-validate"><code>XML::Document#validate</code></a> method providing the <a href="Dtd.html"><code>XML::Dtd</code></a> object as parameeter. The method will raise an exception if the document is not valid.</p>
 
@@ -121,72 +112,48 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-new" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Dtd.new(&quot;DTD string&quot;) &rarr; dtd
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Dtd.new(&quot;public&quot;, &quot;system&quot;) &rarr; dtd
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document) &rarr; external subset dtd
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, false) &rarr; internal subset dtd
           </span>
-          
         </div>
-        
         <div class="method-heading">
           <span class="method-callseq">
             XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, true) &rarr; internal subset dtd
           </span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Create a new <a href="Dtd.html"><code>Dtd</code></a> from the specified public and system identifiers.</p>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_dtd_initialize(int argc, VALUE *argv, VALUE self)
 {
@@ -290,44 +257,29 @@
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-external_id" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             external_id &rarr; &quot;string&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this dtd&#39;s external identifer (for a PUBLIC DTD).</p>
-          
-          
+          <p>Obtain this dtd’s external identifer (for a PUBLIC DTD).</p>
 
-          
           <div class="method-source-code" id="external_id-source">
             <pre>static VALUE rxml_dtd_external_id_get(VALUE self)
 {
@@ -341,36 +293,22 @@
     return (rxml_new_cstr( xdtd-&gt;ExternalID, NULL));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-name" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             name &rarr; &quot;string&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this dtd&#39;s name.</p>
-          
-          
+          <p>Obtain this dtd’s name.</p>
 
-          
           <div class="method-source-code" id="name-source">
             <pre>static VALUE rxml_dtd_name_get(VALUE self)
 {
@@ -384,36 +322,22 @@
     return (rxml_new_cstr( xdtd-&gt;name, NULL));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-node_type" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             type &rarr; num
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this node&#39;s type identifier.</p>
-          
-          
+          <p>Obtain this node’s type identifier.</p>
 
-          
           <div class="method-source-code" id="node_type-source">
             <pre>static VALUE rxml_dtd_type(VALUE self)
 {
@@ -422,64 +346,39 @@
   return (INT2NUM(xdtd-&gt;type));
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-system_id" class="method-detail method-alias">
-        
         <div class="method-heading">
           <span class="method-name">system_id</span><span
             class="method-args">()</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
-          
-          
-          
+          <p>Obtain this dtd’s URI (for a SYSTEM or PUBLIC DTD).</p>
 
-          
         </div>
 
-        
 
-        
         <div class="aliases">
           Alias for: <a href="Dtd.html#method-i-uri">uri</a>
         </div>
-        
       </div>
 
-    
       <div id="method-i-uri" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             uri &rarr; &quot;string&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Obtain this dtd&#39;s URI (for a SYSTEM or PUBLIC DTD).</p>
-          
-          
+          <p>Obtain this dtd’s URI (for a SYSTEM or PUBLIC DTD).</p>
 
-          
           <div class="method-source-code" id="uri-source">
             <pre>static VALUE rxml_dtd_uri_get(VALUE self)
 {
@@ -492,29 +391,23 @@
     return (rxml_new_cstr( xdtd-&gt;SystemID, NULL));
 }</pre>
           </div>
-          
         </div>
 
-        
         <div class="aliases">
           Also aliased as: <a href="Dtd.html#method-i-system_id">system_id</a>
         </div>
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

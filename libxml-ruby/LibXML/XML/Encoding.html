@@ -21,8 +21,6 @@
 <link href="../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="module">
 <nav role="navigation">
   <div id="project-navigation">
@@ -62,16 +60,15 @@
     
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-from_s">::from_s</a>
-    
+    <li ><a href="#method-c-to_rb_encoding">::to_rb_encoding</a>
     <li ><a href="#method-c-to_s">::to_s</a>
-    
   </ul>
 </div>
 
@@ -87,9 +84,9 @@
     
 <p>The encoding class exposes the encodings that libxml supports via constants.</p>
 
-<p><a href="../../LibXML.html"><code>LibXML</code></a> converts all data sources to UTF8 internally before processing them.  By default,  <a href="../../LibXML.html"><code>LibXML</code></a> determines a data source&#39;s encoding  using the algorithm described on its <a href="http://xmlsoft.org/encoding.html">website</a>.</p>
+<p><a href="../../LibXML.html"><code>LibXML</code></a> converts all data sources to UTF8 internally before processing them.  By default,  <a href="../../LibXML.html"><code>LibXML</code></a> determines a data source’s encoding  using the algorithm described on its <a href="http://xmlsoft.org/encoding.html">website</a>.</p>
 
-<p>However, you may override a data source&#39;s encoding  by using the encoding constants defined in this module.</p>
+<p>However, you may override a data source’s encoding  by using the encoding constants defined in this module.</p>
 
 <p>Example 1:</p>
 
@@ -113,173 +110,83 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
     <section class="constants-list">
       <header>
         <h3>Constants</h3>
       </header>
       <dl>
-      
         <dt id="ASCII">ASCII
-        
         <dd><p>pure <a href="Encoding.html#ASCII"><code>ASCII</code></a>.</p>
-        
-      
         <dt id="EBCDIC">EBCDIC
-        
         <dd><p><a href="Encoding.html#EBCDIC"><code>EBCDIC</code></a> uh!</p>
-        
-      
         <dt id="ERROR">ERROR
-        
         <dd><p>No char encoding detected.</p>
-        
-      
         <dt id="EUC_JP">EUC_JP
-        
         <dd><p>EUC-JP.</p>
-        
-      
         <dt id="ISO_2022_JP">ISO_2022_JP
-        
         <dd><p>ISO-2022-JP.</p>
-        
-      
         <dt id="ISO_8859_1">ISO_8859_1
-        
         <dd><p>ISO-8859-1 ISO Latin 1.</p>
-        
-      
         <dt id="ISO_8859_2">ISO_8859_2
-        
         <dd><p>ISO-8859-2 ISO Latin 2.</p>
-        
-      
         <dt id="ISO_8859_3">ISO_8859_3
-        
         <dd><p>ISO-8859-3.</p>
-        
-      
         <dt id="ISO_8859_4">ISO_8859_4
-        
         <dd><p>ISO-8859-4.</p>
-        
-      
         <dt id="ISO_8859_5">ISO_8859_5
-        
         <dd><p>ISO-8859-5.</p>
-        
-      
         <dt id="ISO_8859_6">ISO_8859_6
-        
         <dd><p>ISO-8859-6.</p>
-        
-      
         <dt id="ISO_8859_7">ISO_8859_7
-        
         <dd><p>ISO-8859-7.</p>
-        
-      
         <dt id="ISO_8859_8">ISO_8859_8
-        
         <dd><p>ISO-8859-8.</p>
-        
-      
         <dt id="ISO_8859_9">ISO_8859_9
-        
         <dd><p>ISO-8859-9.</p>
-        
-      
         <dt id="NONE">NONE
-        
         <dd><p>No char encoding detected.</p>
-        
-      
         <dt id="SHIFT_JIS">SHIFT_JIS
-        
         <dd><p>Shift_JIS.</p>
-        
-      
         <dt id="UCS_2">UCS_2
-        
         <dd><p>UCS-2.</p>
-        
-      
         <dt id="UCS_4BE">UCS_4BE
-        
         <dd><p>UCS-4 big endian.</p>
-        
-      
         <dt id="UCS_4LE">UCS_4LE
-        
         <dd><p>UCS-4 little endian.</p>
-        
-      
         <dt id="UCS_4_2143">UCS_4_2143
-        
         <dd><p>UCS-4 unusual ordering.</p>
-        
-      
         <dt id="UCS_4_3412">UCS_4_3412
-        
         <dd><p>UCS-4 unusual ordering.</p>
-        
-      
         <dt id="UTF_16BE">UTF_16BE
-        
         <dd><p>UTF-16 big endian.</p>
-        
-      
         <dt id="UTF_16LE">UTF_16LE
-        
         <dd><p>UTF-16 little endian.</p>
-        
-      
         <dt id="UTF_8">UTF_8
-        
         <dd><p>UTF-8</p>
-        
-      
       </dl>
     </section>
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-from_s" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             from_s(&quot;UTF_8&quot;) &rarr; XML::Encoding::UTF_8
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Converts an encoding string to an encoding constant defined on the <a href="Encoding.html"><code>XML::Encoding</code></a> class.</p>
-          
-          
 
-          
           <div class="method-source-code" id="from_s-source">
             <pre>static VALUE rxml_encoding_from_s(VALUE klass, VALUE encoding)
 {
@@ -292,36 +199,46 @@
   return INT2NUM(xencoding);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
+      <div id="method-c-to_rb_encoding" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-callseq">
+            encoding_to_rb_encoding(Input::ENCODING) &rarr; Encoding
+          </span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Converts an encoding constant defined on the <a href="Encoding.html"><code>XML::Encoding</code></a> class to a Ruby encoding object (available on Ruby 1.9.* and higher).</p>
+
+          <div class="method-source-code" id="to_rb_encoding-source">
+            <pre>VALUE rxml_encoding_to_rb_encoding(VALUE klass, VALUE encoding)
+{
+  xmlCharEncoding xmlEncoding = (xmlCharEncoding)NUM2INT(encoding);
+  rb_encoding* rbencoding = rxml_xml_encoding_to_rb_encoding(klass, xmlEncoding);
+  return rb_enc_from_encoding(rbencoding);
+}</pre>
+          </div>
+        </div>
+
+
+      </div>
+
       <div id="method-c-to_s" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             to_s(XML::Encoding::UTF_8) &rarr; &quot;UTF-8&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Converts an encoding constant defined on the <a href="Encoding.html"><code>XML::Encoding</code></a> class to its text representation.</p>
-          
-          
 
-          
           <div class="method-source-code" id="to_s-source">
             <pre>static VALUE rxml_encoding_to_s(VALUE klass, VALUE encoding)
 {
@@ -333,25 +250,20 @@
     return rxml_new_cstr(xencoding, xencoding);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -21,8 +21,6 @@
 <link href="../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,53 +57,39 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link"><a href="../../Object.html">Object</a>
-  
 </div>
 
-    <div id="includes-section" class="nav-section">
+    
+<div id="includes-section" class="nav-section">
   <h3>Included Modules</h3>
 
   <ul class="link-list">
-  
-  
     <li><span class="include">Enumerable</span>
-  
-  
   </ul>
 </div>
 
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-new">::new</a>
-    
     <li ><a href="#method-i-default">#default</a>
-    
     <li ><a href="#method-i-default_prefix-3D">#default_prefix=</a>
-    
     <li ><a href="#method-i-definitions">#definitions</a>
-    
     <li ><a href="#method-i-each">#each</a>
-    
     <li ><a href="#method-i-find_by_href">#find_by_href</a>
-    
     <li ><a href="#method-i-find_by_prefix">#find_by_prefix</a>
-    
     <li ><a href="#method-i-namespace">#namespace</a>
-    
     <li ><a href="#method-i-namespace-3D">#namespace=</a>
-    
     <li ><a href="#method-i-node">#node</a>
-    
   </ul>
 </div>
 
@@ -119,16 +103,16 @@
 
   <section class="description">
     
-<p>The <a href="Namespaces.html"><code>XML::Namespaces</code></a> class is used to access information about a node&#39;s namespaces.  For each node, libxml maintains:</p>
+<p>The <a href="Namespaces.html"><code>XML::Namespaces</code></a> class is used to access information about a node’s namespaces.  For each node, libxml maintains:</p>
 <ul><li>
-<p>The node&#39;s namespace (<a href="Namespaces.html#method-i-namespace"><code>namespace</code></a>)</p>
+<p>The node’s namespace (<a href="Namespaces.html#method-i-namespace"><code>namespace</code></a>)</p>
 </li><li>
 <p>Which namespaces are defined on the node (definnitions)</p>
 </li><li>
 <p>Which namespaces are in scope for the node (<a href="Namespaces.html#method-i-each"><code>each</code></a>)</p>
 </li></ul>
 
-<p>Let&#39;s look at an example:</p>
+<p>Let’s look at an example:</p>
 
 <pre>&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
                xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
@@ -145,39 +129,26 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-new" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             initialize(XML::Node) &rarr; XML::Namespaces
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new namespaces object.  Generally you do not call this method directly, but instead access a namespaces object via <a href="Node.html#method-i-namespaces"><code>XML::Node#namespaces</code></a>.</p>
 
 <p>Usage:</p>
@@ -185,10 +156,7 @@
 <pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">string</span>(<span class="ruby-string">&#39;&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;&#39;</span>)
 <span class="ruby-identifier">namespaces</span> = <span class="ruby-identifier">new</span> <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Namespaces</span>(<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_namespaces_initialize(VALUE self, VALUE node)
 {
@@ -201,39 +169,27 @@
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-default" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             default &rarr; XML::Namespace
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Returns the default namespace for this node or nil.</p>
 
 <p>Usage:</p>
@@ -242,41 +198,27 @@
 <span class="ruby-identifier">ns</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">default_namespace</span>
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">ns</span>.<span class="ruby-identifier">href</span>, <span class="ruby-string">&#39;http://schemas.xmlsoap.org/soap/envelope/&#39;</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="default-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/namespaces.rb</span>
 <span class="line-num">15</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">default</span>
 <span class="line-num">16</span>   <span class="ruby-identifier">find_by_prefix</span>(<span class="ruby-keyword">nil</span>)
 <span class="line-num">17</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-default_prefix-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             default_prefix = &quot;string&quot;
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Assigns a name (prefix) to the default namespace. This makes it much easier to perform <a href="XPath.html"><code>XML::XPath</code></a> searches.</p>
 
 <p>Usage:</p>
@@ -285,10 +227,7 @@
 <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">default_prefix</span> = <span class="ruby-string">&#39;soap&#39;</span>
 <span class="ruby-identifier">node</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">find_first</span>(<span class="ruby-string">&#39;soap:Envelope&#39;</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="default_prefix-3D-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/namespaces.rb</span>
 <span class="line-num">30</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">default_prefix=</span>(<span class="ruby-identifier">prefix</span>)
@@ -298,31 +237,20 @@
 <span class="line-num">34</span>   <span class="ruby-constant">Namespace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">node</span>, <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">href</span>)
 <span class="line-num">35</span> <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-definitions" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             definitions &rarr; [XML::Namespace, XML::Namespace]
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Returns an array of <a href="Namespace.html"><code>XML::Namespace</code></a> objects that are  defined on this node.</p>
 
 <p>Usage:</p>
@@ -330,10 +258,7 @@
 <pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">string</span>(<span class="ruby-string">&#39;&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;/&gt;&#39;</span>)
 <span class="ruby-identifier">defs</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">definitions</span>
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="definitions-source">
             <pre>static VALUE rxml_namespaces_definitions(VALUE self)
 {
@@ -356,31 +281,20 @@
   return arr;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-each" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             each {|XML::Namespace|}
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Iterates over the namespace objects that are in context for this node.</p>
 
 <p>Usage:</p>
@@ -389,10 +303,7 @@
 doc.root.namespaces.each do |ns|
   ..
 end</pre>
-          
-          
 
-          
           <div class="method-source-code" id="each-source">
             <pre>static VALUE rxml_namespaces_each(VALUE self)
 {
@@ -416,32 +327,21 @@ end</pre>
   return Qnil;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-find_by_href" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             find_by_href(href) &rarr; XML::Namespace
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Searches for a namespace that has the specified href. The search starts at the current node and works upward through the node&#39;s parents.  If a namespace is found, then an <a href="Namespace.html"><code>XML::Namespace</code></a> instance is returned, otherwise nil is returned.</p>
+          <p>Searches for a namespace that has the specified href. The search starts at the current node and works upward through the node’s parents.  If a namespace is found, then an <a href="Namespace.html"><code>XML::Namespace</code></a> instance is returned, otherwise nil is returned.</p>
 
 <p>Usage:</p>
 
@@ -450,10 +350,7 @@ end</pre>
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;soap&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">prefix</span>)
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;http://schemas.xmlsoap.org/soap/envelope/&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">href</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="find_by_href-source">
             <pre>static VALUE rxml_namespaces_find_by_href(VALUE self, VALUE href)
 {
@@ -470,32 +367,21 @@ end</pre>
     return Qnil;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-find_by_prefix" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             find_by_prefix(prefix=nil) &rarr; XML::Namespace
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Searches for a namespace that has the specified prefix. The search starts at the current node and works upward through the node&#39;s parents.  If a namespace is found, then an <a href="Namespace.html"><code>XML::Namespace</code></a> instance is returned, otherwise nil is returned.</p>
+          <p>Searches for a namespace that has the specified prefix. The search starts at the current node and works upward through the node’s parents.  If a namespace is found, then an <a href="Namespace.html"><code>XML::Namespace</code></a> instance is returned, otherwise nil is returned.</p>
 
 <p>Usage:</p>
 
@@ -504,10 +390,7 @@ end</pre>
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;soap&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">prefix</span>)
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;http://schemas.xmlsoap.org/soap/envelope/&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">href</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="find_by_prefix-source">
             <pre>static VALUE rxml_namespaces_find_by_prefix(VALUE self, VALUE prefix)
 {
@@ -531,32 +414,21 @@ end</pre>
     return Qnil;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-namespace" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             namespace &rarr; XML::Namespace
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Returns the current node&#39;s namespace.</p>
+          <p>Returns the current node’s namespace.</p>
 
 <p>Usage:</p>
 
@@ -565,10 +437,7 @@ end</pre>
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;soap&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">prefix</span>)
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;http://schemas.xmlsoap.org/soap/envelope/&#39;</span>, <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">href</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="namespace-source">
             <pre>static VALUE rxml_namespaces_namespace_get(VALUE self)
 {
@@ -581,32 +450,21 @@ end</pre>
     return Qnil;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-namespace-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             namespace = XML::Namespace
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Sets the current node&#39;s namespace.</p>
+          <p>Sets the current node’s namespace.</p>
 
 <p>Basic usage:</p>
 
@@ -621,10 +479,7 @@ end</pre>
 <span class="ruby-identifier">node</span>.<span class="ruby-identifier">namespaces</span>.<span class="ruby-identifier">namespace</span> = <span class="ruby-identifier">ns</span>
 <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;&lt;soap:Envelope xmlns:soap=\&quot;http://schemas.xmlsoap.org/soap/envelope/\&quot;/&gt;&quot;</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">to_s</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="namespace-3D-source">
             <pre>static VALUE rxml_namespaces_namespace_set(VALUE self, VALUE ns)
 {
@@ -640,36 +495,22 @@ end</pre>
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-node" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             node &rarr; XML::Node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Returns the current node.</p>
-          
-          
 
-          
           <div class="method-source-code" id="node-source">
             <pre>static VALUE rxml_namespaces_node_get(VALUE self)
 {
@@ -678,25 +519,20 @@ end</pre>
   return rxml_node_wrap(xnode);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -21,8 +21,6 @@
 <link href="../../../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,40 +57,30 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link"><a href="../../../Object.html">Object</a>
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-new">::new</a>
-    
     <li ><a href="#method-i-disable_cache">#disable_cache</a>
-    
     <li ><a href="#method-i-doc">#doc</a>
-    
     <li ><a href="#method-i-enable_cache">#enable_cache</a>
-    
     <li ><a href="#method-i-find">#find</a>
-    
     <li ><a href="#method-i-node-3D">#node=</a>
-    
     <li ><a href="#method-i-register_namespace">#register_namespace</a>
-    
     <li ><a href="#method-i-register_namespaces">#register_namespaces</a>
-    
     <li ><a href="#method-i-register_namespaces_from_node">#register_namespaces_from_node</a>
-    
   </ul>
 </div>
 
@@ -117,39 +105,26 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-new" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             XPath::Context.new(doc) &rarr; XPath::Context
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Creates a new <a href="../XPath.html"><code>XPath</code></a> context for the specified document.  The context can then be used to evaluate an <a href="../XPath.html"><code>XPath</code></a> expression.</p>
 
 <pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">string</span>(<span class="ruby-string">&#39;&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;&#39;</span>)
@@ -157,10 +132,7 @@
 <span class="ruby-identifier">nodes</span> = <span class="ruby-constant">XPath</span><span class="ruby-operator">::</span><span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;//first&#39;</span>, <span class="ruby-identifier">context</span>)
 <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_xpath_context_initialize(VALUE self, VALUE document)
 {
@@ -177,44 +149,29 @@
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-disable_cache" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             disable_cache
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Disables an XPath::Context&#39;s built-in cache.</p>
-          
-          
+          <p>Disables an <a href="Context.html"><code>XPath::Context</code></a>‘s built-in cache.</p>
 
-          
           <div class="method-source-code" id="disable_cache-source">
             <pre>static VALUE
 rxml_xpath_context_disable_cache(VALUE self)
@@ -228,36 +185,22 @@ rxml_xpath_context_disable_cache(VALUE self)
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-doc" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             doc &rarr; document
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Obtain the <a href="../Document.html"><code>XML::Document</code></a> this node belongs to.</p>
-          
-          
 
-          
           <div class="method-source-code" id="doc-source">
             <pre>static VALUE rxml_xpath_context_doc(VALUE self)
 {
@@ -269,36 +212,22 @@ rxml_xpath_context_disable_cache(VALUE self)
   return rxml_document_wrap(xdoc);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-enable_cache" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             enable_cache(size = nil)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
-          <p>Enables an XPath::Context&#39;s built-in cache.  If the cache is enabled then <a href="../XPath.html"><code>XPath</code></a> objects will be cached internally for reuse. The size parameter controls sets the maximum number of <a href="../XPath.html"><code>XPath</code></a> objects  that will be cached per <a href="../XPath.html"><code>XPath</code></a> object type (node-set, string, number, boolean, and misc objects).  Set size to nil to use the default cache size of 100.</p>
-          
-          
+          <p>Enables an <a href="Context.html"><code>XPath::Context</code></a>‘s built-in cache.  If the cache is enabled then <a href="../XPath.html"><code>XPath</code></a> objects will be cached internally for reuse. The size parameter controls sets the maximum number of <a href="../XPath.html"><code>XPath</code></a> objects  that will be cached per <a href="../XPath.html"><code>XPath</code></a> object type (node-set, string, number, boolean, and misc objects).  Set size to nil to use the default cache size of 100.</p>
 
-          
           <div class="method-source-code" id="enable_cache-source">
             <pre>static VALUE
 rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
@@ -320,36 +249,22 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-find" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             find(&quot;xpath&quot;) &rarr; true|false|number|string|XML::XPath::Object
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Executes the provided xpath function.  The result depends on the execution of the xpath statement.  It may be true, false, a number, a string or  a node set.</p>
-          
-          
 
-          
           <div class="method-source-code" id="find-source">
             <pre>static VALUE rxml_xpath_context_find(VALUE self, VALUE xpath_expr)
 {
@@ -378,40 +293,26 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   return rxml_xpath_to_value(xctxt, xobject);
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-node-3D" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             node = node
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Set the current node used by the <a href="../XPath.html"><code>XPath</code></a> engine</p>
 
 <pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">string</span>(<span class="ruby-string">&#39;&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;&#39;</span>)
 <span class="ruby-identifier">context</span>.<span class="ruby-identifier">node</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">first</span>
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="node-3D-source">
             <pre>static VALUE rxml_xpath_context_node_set(VALUE self, VALUE node)
 {
@@ -424,39 +325,25 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   return node;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-register_namespace" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             register_namespace(prefix, uri) &rarr; (true|false)
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Register the specified namespace URI with the specified prefix in this context.</p>
 
 <pre class="ruby"><span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespace</span>(<span class="ruby-string">&#39;xi&#39;</span>, <span class="ruby-string">&#39;http://www.w3.org/2001/XInclude&#39;</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="register_namespace-source">
             <pre>static VALUE rxml_xpath_context_register_namespace(VALUE self, VALUE prefix, VALUE uri)
 {
@@ -479,31 +366,20 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   }
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-register_namespaces" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             register_namespaces([&quot;prefix:uri&quot;]) &rarr; self
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Register the specified namespaces in this context.  There are three different forms that libxml accepts.  These include a string, an array of strings, or a hash table:</p>
 
 <pre>context.register_namespaces(&#39;xi:http://www.w3.org/2001/XInclude&#39;)
@@ -511,10 +387,7 @@ context.register_namespaces([&#39;xlink:http://www.w3.org/1999/xlink&#39;,
                              &#39;xi:http://www.w3.org/2001/XInclude&#39;)
 context.register_namespaces(&#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xlink&#39;,
                                &#39;xi&#39; =&gt; &#39;http://www.w3.org/2001/XInclude&#39;)</pre>
-          
-          
 
-          
           <div class="method-source-code" id="register_namespaces-source">
             <pre>static VALUE rxml_xpath_context_register_namespaces(VALUE self, VALUE nslist)
 {
@@ -561,41 +434,27 @@ context.register_namespaces(&#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xl
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-register_namespaces_from_node" class="method-detail ">
-        
-        
         <div class="method-heading">
           <span class="method-callseq">
             register_namespaces_from_node(node) &rarr; self
           </span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Helper method to read in namespaces defined on a node.</p>
 
 <pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">string</span>(<span class="ruby-string">&#39;&lt;header&gt;&lt;first&gt;hi&lt;/first&gt;&lt;/header&gt;&#39;</span>)
 <span class="ruby-identifier">context</span> = <span class="ruby-constant">XPath</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">doc</span>)
 <span class="ruby-identifier">context</span>.<span class="ruby-identifier">register_namespaces_from_node</span>(<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">root</span>)
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="register_namespaces_from_node-source">
             <pre>static VALUE rxml_xpath_context_register_namespaces_from_node(VALUE self,
     VALUE node)
@@ -645,25 +504,20 @@ context.register_namespaces(&#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xl
   return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
