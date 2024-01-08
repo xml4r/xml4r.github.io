@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             type="text" name="search" placeholder="Search" spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -65,7 +65,8 @@
               <summary>      <a href="#label-Release+History">Release History</a>
 </summary>
               <ul class="link-list" role="directory">
-                          <li>      <a href="#label-5.0.0+-2F+2024-01-07">5.0.0 / 2024-01-07</a>
+                          <li>      <a href="#label-5.0.1+-2F+2024-01-08">5.0.1 / 2024-01-08</a>
+          <li>      <a href="#label-5.0.0+-2F+2024-01-07">5.0.0 / 2024-01-07</a>
           <li>      <a href="#label-4.1.2+-2F+2023-11-04">4.1.2 / 2023-11-04</a>
           <li>      <a href="#label-4.1.1+-2F+2023-05-01">4.1.1 / 2023-05-01</a>
           <li>      <a href="#label-4.1.0+-2F+2023-04-30">4.1.0 / 2023-04-30</a>
@@ -213,6 +214,11 @@
 <main role="main" aria-label="Page HISTORY">
 
 <h1 id="label-Release+History">Release History<span><a href="#label-Release+History">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-5.0.1+-2F+2024-01-08">5.0.1 / 2024-01-08<span><a href="#label-5.0.1+-2F+2024-01-08">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix broken Document#io method that was broken by switching Parsers to use keyword arguments</p>
+</li></ul>
 
 <h2 id="label-5.0.0+-2F+2024-01-07">5.0.0 / 2024-01-07<span><a href="#label-5.0.0+-2F+2024-01-07">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
@@ -487,7 +493,7 @@
 </li><li>
 <p>Added full pass-through access to libxml2 xmlC14NDocDumpMemory method via <a href="LibXML/XML/Document.html#method-i-canonicalize"><code>LibXML::XML::Document#canonicalize</code></a> method with optional arguments.</p>
 </li><li>
-<p>Added full test data for C14N based off of W3C spec. (<a href="http://www.w3.org/TR/xml-c14n#Examples">www.w3.org/TR/xml-c14n#Examples</a>)</p>
+<p>Added full test data for C14N based off of W3C spec.  (<a href="http://www.w3.org/TR/xml-c14n#Examples">www.w3.org/TR/xml-c14n#Examples</a>)</p>
 </li><li>
 <p>Update sax handler to support encodings on Ruby 1.9 and higher.</p>
 </li></ul>
@@ -804,7 +810,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <p>They have been replaced by a the new XML::Namespaces class. Use this class to inspect a node’s namespace, its default namespace, its namespace definitions and which namespaces are in scope.  It can be accessed via the the XML::Node#namespaces method.</p>
 </li><li>
-<p>Rationalized XML::Document#save, XML::Document#to_s and XML::Node#to_s to take an optional hash table of parameters that control how output is generated. Supported parameters include setting indentation on or off, the indentation level and the output encoding.  This is an API change and may break existing calls to XML::Document#save.  However, the previous API was broken - setting the encoding resulted in an error so its unlikely anyone is using it.</p>
+<p>Rationalized XML::Document#save, XML::Document#to_s and XML::Node#to_s to take an optional hash table of parameters  that control how output is generated. Supported parameters include setting indentation on or off, the indentation level and the output encoding.  This is an API change and may break existing calls to XML::Document#save.  However, the previous API was broken - setting the encoding resulted in an error so its unlikely anyone is using it.</p>
 </li><li>
 <p>Rationalized XML::Document#debug, XML::Node#debug, XML::XPath::XPathObject#Debug.</p>
 </li><li>
@@ -886,7 +892,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <h2 id="label-0.8.2+-2F+2008-07-21+Charlie+Savage">0.8.2 / 2008-07-21 Charlie Savage<span><a href="#label-0.8.2+-2F+2008-07-21+Charlie+Savage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 <ul><li>
-<p>To use <a href="LibXML.html"><code>LibXML</code></a> you can either require ‘xml’ or require ‘libxml’. The differences is that require ‘xml’ mixes the <a href="LibXML.html"><code>LibXML</code></a> module into the global namespace, thereby allowing you to write code such as document = XML::Document.new.  Note that this is different from 0.8.0 and 0.8.1 and may require updating your code.</p>
+<p>To use <a href="LibXML.html"><code>LibXML</code></a> you can either require ‘xml’ or require ‘libxml’.  The differences is that require ‘xml’ mixes the <a href="LibXML.html"><code>LibXML</code></a> module into the global namespace, thereby allowing you to write code such as document = XML::Document.new.  Note that this is different  from 0.8.0 and 0.8.1 and may require updating your code.</p>
 </li><li>
 <p>Support RelaxNG validation (thanks to Morus Walter)</p>
 </li><li>
@@ -1120,7 +1126,7 @@ dyld: Symbol not found: _htmlNewParserCtxt</pre>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

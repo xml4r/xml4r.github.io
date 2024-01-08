@@ -78,20 +78,7 @@ function hookSearch() {
   search.scrollIntoView = search.scrollInWindow;
 };
 
-function hookFocus() {
-  document.addEventListener("keydown", (event) => {
-    if (document.activeElement.tagName === 'INPUT') {
-      return;
-    }
-    if (event.key === "/") {
-      event.preventDefault();
-      document.querySelector('#search-field').focus();
-    }
-  });
-}
-
 document.addEventListener('DOMContentLoaded', function() {
   hookSourceViews();
   hookSearch();
-  hookFocus();
 });

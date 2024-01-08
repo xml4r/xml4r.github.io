@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             type="text" name="search" placeholder="Search" spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -510,9 +510,9 @@
         </div>
 
         <div class="method-description">
-          <p>Add  the specified text or <a href="Node.html"><code>XML::Node</code></a> as a new child node to the current node.</p>
+          <p>Add  the specified text or <a href="Node.html"><code>XML::Node</code></a> as a new child node to the  current node.</p>
 
-<p>If the specified argument is a string, it should be a raw string that contains unescaped <a href="../XML.html"><code>XML</code></a> special characters.  Entity references are not supported.</p>
+<p>If the specified argument is a string, it should be a raw string  that contains unescaped <a href="../XML.html"><code>XML</code></a> special characters.  Entity references  are not supported.</p>
 
 <p>The method will return the current node.</p>
 
@@ -551,10 +551,15 @@
       <div id="method-i-3D-3D" class="method-detail method-alias">
         <div class="method-header">
           <div class="method-heading">
-            <span class="method-name">==</span>
+            <span class="method-name">==</span><span
+              class="method-args">(p1)</span>
           </div>
         </div>
 
+        <div class="method-description">
+          <p>Test equality between the two nodes. Two nodes are equal if they are the same node.</p>
+
+        </div>
 
 
         <div class="aliases">
@@ -788,10 +793,27 @@
       <div id="method-i-blank-3F" class="method-detail ">
         <div class="method-header">
           <div class="method-heading">
-            <span class="method-name">blank?</span>
+            <span class="method-name">blank?</span><span
+              class="method-args"> -&gt; (true|false)</span>
+            <span class="method-click-advice">click to toggle source</span>
           </div>
         </div>
 
+        <div class="method-description">
+          <p>Determine whether this node is an empty or whitespace only text-node.</p>
+
+          <div class="method-source-code" id="blank-3F-source">
+            <pre>static VALUE rxml_node_empty_q(VALUE self)
+{
+  xmlNodePtr xnode;
+  xnode = rxml_get_xnode(self);
+  if (xnode == NULL)
+    return (Qnil);
+
+  return ((xmlIsBlankNode(xnode) == 1) ? Qtrue : Qfalse);
+}</pre>
+          </div>
+        </div>
 
         <div class="aliases">
           Also aliased as: <a href="Node.html#method-i-empty-3F">empty?</a>
@@ -825,10 +847,15 @@
       <div id="method-i-child" class="method-detail method-alias">
         <div class="method-header">
           <div class="method-heading">
-            <span class="method-name">child</span>
+            <span class="method-name">child</span><span
+              class="method-args">()</span>
           </div>
         </div>
 
+        <div class="method-description">
+          
+
+        </div>
 
 
         <div class="aliases">
@@ -1352,10 +1379,15 @@
       <div id="method-i-each_child" class="method-detail method-alias">
         <div class="method-header">
           <div class="method-heading">
-            <span class="method-name">each_child</span>
+            <span class="method-name">each_child</span><span
+              class="method-args">()</span>
           </div>
         </div>
 
+        <div class="method-description">
+          
+
+        </div>
 
 
         <div class="aliases">
@@ -2074,7 +2106,7 @@
         </div>
 
         <div class="method-description">
-          <p>Adds the specified node as the next sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be merged together, meaning the returned node may be different than the original node.</p>
+          <p>Adds the specified node as the next sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different  than the original node.</p>
 
           <div class="method-source-code" id="next-3D-source">
             <pre>static VALUE rxml_node_next_set(VALUE self, VALUE next)
@@ -2317,7 +2349,7 @@
 
 <p>Text nodes return only <code>true</code> or <code>false</code>.  Element and attribute nodes examine their immediate text node children to determine the value. Any other type of node always returns <code>nil</code>.</p>
 
-<p>If an element or attribute node has at least one immediate child text node and all the immediate text node children have the same <code>output_escaping?</code> value, that value is returned.  Otherwise, <code>nil</code> is returned.</p>
+<p>If an element or attribute node has at least one immediate child text node  and all the immediate text node children have the same <code>output_escaping?</code> value, that value is returned.  Otherwise, <code>nil</code> is returned.</p>
 
           <div class="method-source-code" id="output_escaping-3F-source">
             <pre>static VALUE rxml_node_output_escaping_q(VALUE self)
@@ -2536,7 +2568,7 @@
         </div>
 
         <div class="method-description">
-          <p>Adds the specified node as the previous sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be merged together, meaning the returned node may be different than the original node.</p>
+          <p>Adds the specified node as the previous sibling of the current node. If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different  than the original node.</p>
 
           <div class="method-source-code" id="prev-3D-source">
             <pre>static VALUE rxml_node_prev_set(VALUE self, VALUE prev)
@@ -2616,7 +2648,7 @@
         </div>
 
         <div class="method-description">
-          <p>Adds the specified node as the end of the current node’s list of siblings.  If the node already exists in the document, it is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different than the original node.</p>
+          <p>Adds the specified node as the end of the current node’s list of siblings.  If the node already exists in the document, it  is first removed from its existing context.  Any adjacent text nodes will be  merged together, meaning the returned node may be different than the original node.</p>
 
           <div class="method-source-code" id="sibling-3D-source">
             <pre>static VALUE rxml_node_sibling_set(VALUE self, VALUE sibling)
@@ -2729,7 +2761,7 @@
         <div class="method-description">
           <p>Converts a node, and all of its children, to a string representation. To include only the node’s children, use the the <a href="Node.html#method-i-inner_xml"><code>XML::Node#inner_xml</code></a> method.</p>
 
-<p>You may provide an optional hash table to control how the string is generated.  Valid options are:</p>
+<p>You may provide an optional hash table to control how the string is  generated.  Valid options are:</p>
 
 <p>:indent - Specifies if the string should be indented.  The default value is true.  Note that indentation is only added if both :indent is true and <a href="../XML.html#method-c-indent_tree_output"><code>XML.indent_tree_output</code></a> is true.  If :indent is set to false, then both indentation and line feeds are removed from the result.</p>
 
@@ -2966,7 +2998,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
