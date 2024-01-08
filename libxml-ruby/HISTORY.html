@@ -218,9 +218,9 @@
 <ul><li>
 <p>This release is major version bump because it removes access to global parser options that libxml2 version 2.12.0 deprecated (see <a href="https://gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.0">gitlab.gnome.org/GNOME/libxml2/-/releases/v2.12.0</a>) In the unlikely event your code uses these options, then you will need to update it. Specifically, instead of setting global parser options, pass them directly to either Parsers or ParserContexts when creating them. Options are defined as constants in <a href="LibXML/XML/Parser/Options.html"><code>LibXML::XML::Parser::Options</code></a> and LibXML::HTML::Parser::Options</p>
 </li><li>
-<p>Update Parser initialize methods to take named parameters instead of a hash table (you should <strong>not</strong> have to update your code due to this change)</p>
+<p>Update Parser initialize methods to take keyword parameters instead of a hash table (you may have to update your code due to this change)</p>
 </li><li>
-<p>Fix broken compiliation with libxml2 version 2.12.0 (due to libxml2 header changes)</p>
+<p>Fix broken compilation with libxml2 version 2.12.0 (due to libxml2 header changes)</p>
 </li><li>
 <p>Add support for Ruby 3.3.*</p>
 </li><li>
