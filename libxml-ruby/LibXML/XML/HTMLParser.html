@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -100,7 +100,7 @@
 <span class="ruby-identifier">doc</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>
 </pre>
 
-<p>You can also parse documents (see XML::HTMLParser.document),  strings (see <a href="HTMLParser.html#method-c-string"><code>XML::HTMLParser.string</code></a>) and io objects (see <a href="HTMLParser.html#method-c-io"><code>XML::HTMLParser.io</code></a>).</p>
+<p>You can also parse documents (see XML::HTMLParser.document), strings (see <a href="HTMLParser.html#method-c-string"><code>XML::HTMLParser.string</code></a>) and io objects (see <a href="HTMLParser.html#method-c-io"><code>XML::HTMLParser.io</code></a>).</p>
 
   </section>
 
@@ -132,29 +132,32 @@
        </header>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.file(path) &rarr; XML::HTMLParser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.file(path, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options =&gt; XML::HTMLParser::Options::NOENT) &rarr; XML::HTMLParser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.file(path) &rarr; XML::HTMLParser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.file(path, encoding: XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              options: XML::HTMLParser::Options::NOENT) &rarr; XML::HTMLParser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
           <p>Creates a new parser by parsing the specified file or uri.</p>
 
-<p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
+<p>Parameters:</p>
 
-<pre>encoding - The document encoding, defaults to nil. Valid values
+<pre>path - Path to file to parse
+encoding - The document encoding, defaults to nil. Valid values
            are the encoding constants defined on XML::Encoding.
 options - Parser options.  Valid values are the constants defined on
           XML::HTMLParser::Options.  Mutliple options can be combined
@@ -162,10 +165,10 @@ options - Parser options.  Valid values are the constants defined on
 
           <div class="method-source-code" id="file-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/html_parser.rb</span>
-<span class="line-num">21</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span> = {})
+<span class="line-num">21</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
 <span class="line-num">22</span>   <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">HTMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">path</span>)
-<span class="line-num">23</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>]
-<span class="line-num">24</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>]
+<span class="line-num">23</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span>
+<span class="line-num">24</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
 <span class="line-num">25</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
 <span class="line-num">26</span> <span class="ruby-keyword">end</span></pre>
           </div>
@@ -175,26 +178,28 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.io(io) &rarr; XML::HTMLParser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.io(io, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options &rarr; XML::HTMLParser::Options::NOENT
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::HTMLParser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.io(io) &rarr; XML::HTMLParser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.io(io, encoding: XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              options: XML::HTMLParser::Options::NOENT
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              base_uri: &quot;http://libxml.org&quot;) &rarr; XML::HTMLParser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -212,11 +217,11 @@ options - Parser options.  Valid values are the constants defined on
 
           <div class="method-source-code" id="io-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/html_parser.rb</span>
-<span class="line-num">45</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">options</span> = {})
+<span class="line-num">45</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">io</span>(<span class="ruby-identifier">io</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
 <span class="line-num">46</span>   <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">HTMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">io</span>(<span class="ruby-identifier">io</span>)
-<span class="line-num">47</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">base_uri</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_uri</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_uri</span>]
-<span class="line-num">48</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>]
-<span class="line-num">49</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>]
+<span class="line-num">47</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">base_uri</span> = <span class="ruby-identifier">base_uri</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">base_uri</span>
+<span class="line-num">48</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span>
+<span class="line-num">49</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
 <span class="line-num">50</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
 <span class="line-num">51</span> <span class="ruby-keyword">end</span></pre>
           </div>
@@ -226,11 +231,13 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.initialize &rarr; parser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.initialize &rarr; parser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -258,34 +265,37 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.string(string)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser.string(string, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options &rarr; XML::HTMLParser::Options::NOENT
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::HTMLParser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.string(string)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser.string(string, encoding: XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              options: XML::HTMLParser::Options::NOENT
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              base_uri: &quot;http://libxml.org&quot;) &rarr; XML::HTMLParser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
           <p>Creates a new parser by parsing the specified string.</p>
 
-<p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
+<p>Parameters:</p>
 
-<pre>base_uri - The base url for the parsed document.
+<pre>string - String to parse
+base_uri - The base url for the parsed document.
 encoding - The document encoding, defaults to nil. Valid values
            are the encoding constants defined on XML::Encoding.
 options - Parser options.  Valid values are the constants defined on
@@ -294,11 +304,11 @@ options - Parser options.  Valid values are the constants defined on
 
           <div class="method-source-code" id="string-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/html_parser.rb</span>
-<span class="line-num">70</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">options</span> = {})
+<span class="line-num">70</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">string</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
 <span class="line-num">71</span>   <span class="ruby-identifier">context</span> = <span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">HTMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">string</span>)
-<span class="line-num">72</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">base_uri</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_uri</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_uri</span>]
-<span class="line-num">73</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>]
-<span class="line-num">74</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:options</span>]
+<span class="line-num">72</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">base_uri</span> = <span class="ruby-identifier">base_uri</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">base_uri</span>
+<span class="line-num">73</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">encoding</span> = <span class="ruby-identifier">encoding</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">encoding</span>
+<span class="line-num">74</span>   <span class="ruby-identifier">context</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
 <span class="line-num">75</span>   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">context</span>)
 <span class="line-num">76</span> <span class="ruby-keyword">end</span></pre>
           </div>
@@ -315,11 +325,13 @@ options - Parser options.  Valid values are the constants defined on
        </header>
 
       <div id="method-i-parse" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            parse &rarr; XML::Document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              parse &rarr; XML::Document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -356,7 +368,7 @@ options - Parser options.  Valid values are the constants defined on
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

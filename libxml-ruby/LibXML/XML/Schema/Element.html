@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -75,6 +75,8 @@
     <li ><a href="#method-i-annotation">#annotation</a>
     <li ><a href="#method-i-array-3F">#array?</a>
     <li ><a href="#method-i-elements">#elements</a>
+    <li ><a href="#method-i-max_occurs">#max_occurs</a>
+    <li ><a href="#method-i-min_occurs">#min_occurs</a>
     <li ><a href="#method-i-node">#node</a>
     <li ><a href="#method-i-required-3F">#required?</a>
   </ul>
@@ -150,10 +152,12 @@
        </header>
 
       <div id="method-i-annotation" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">annotation</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">annotation</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -186,10 +190,12 @@
       </div>
 
       <div id="method-i-array-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">array?</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">array?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -197,9 +203,9 @@
 
           <div class="method-source-code" id="array-3F-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
-<span class="line-num">10</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">array?</span>
-<span class="line-num">11</span>   <span class="ruby-identifier">max_occurs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
-<span class="line-num">12</span> <span class="ruby-keyword">end</span></pre>
+<span class="line-num">18</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">array?</span>
+<span class="line-num">19</span>   <span class="ruby-identifier">max_occurs</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+<span class="line-num">20</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
 
@@ -207,10 +213,12 @@
       </div>
 
       <div id="method-i-elements" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">elements</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">elements</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -218,9 +226,55 @@
 
           <div class="method-source-code" id="elements-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
-<span class="line-num">14</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">elements</span>
-<span class="line-num">15</span>   <span class="ruby-identifier">type</span>.<span class="ruby-identifier">elements</span>
-<span class="line-num">16</span> <span class="ruby-keyword">end</span></pre>
+<span class="line-num">22</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">elements</span>
+<span class="line-num">23</span>   <span class="ruby-identifier">type</span>.<span class="ruby-identifier">elements</span>
+<span class="line-num">24</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-max_occurs" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">max_occurs</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="max_occurs-source">
+            <pre>   <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
+<span class="line-num">10</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_occurs</span>
+<span class="line-num">11</span>   <span class="ruby-ivar">@max</span>
+<span class="line-num">12</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-min_occurs" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">min_occurs</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="min_occurs-source">
+            <pre>  <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
+<span class="line-num">6</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">min_occurs</span>
+<span class="line-num">7</span>   <span class="ruby-ivar">@min</span>
+<span class="line-num">8</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
 
@@ -228,10 +282,12 @@
       </div>
 
       <div id="method-i-node" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">node</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">node</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -253,20 +309,22 @@
       </div>
 
       <div id="method-i-required-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">required?</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">required?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
           
 
           <div class="method-source-code" id="required-3F-source">
-            <pre>  <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
-<span class="line-num">6</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">required?</span>
-<span class="line-num">7</span>   <span class="ruby-operator">!</span><span class="ruby-identifier">min_occurs</span>.<span class="ruby-identifier">zero?</span>
-<span class="line-num">8</span> <span class="ruby-keyword">end</span></pre>
+            <pre>   <span class="ruby-comment"># File lib/libxml/schema/element.rb</span>
+<span class="line-num">14</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">required?</span>
+<span class="line-num">15</span>   <span class="ruby-operator">!</span><span class="ruby-identifier">min_occurs</span>.<span class="ruby-identifier">zero?</span>
+<span class="line-num">16</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
 
@@ -281,7 +339,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

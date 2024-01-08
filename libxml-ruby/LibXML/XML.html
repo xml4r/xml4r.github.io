@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -69,29 +69,12 @@
     <li ><a href="#method-c-catalog_dump">::catalog_dump</a>
     <li ><a href="#method-c-catalog_remove">::catalog_remove</a>
     <li ><a href="#method-c-check_lib_versions">::check_lib_versions</a>
-    <li ><a href="#method-c-debug_entities">::debug_entities</a>
-    <li ><a href="#method-c-debug_entities-3D">::debug_entities=</a>
     <li ><a href="#method-c-default_compression">::default_compression</a>
     <li ><a href="#method-c-default_compression-3D">::default_compression=</a>
-    <li ><a href="#method-c-default_keep_blanks">::default_keep_blanks</a>
-    <li ><a href="#method-c-default_keep_blanks-3D">::default_keep_blanks=</a>
-    <li ><a href="#method-c-default_line_numbers">::default_line_numbers</a>
-    <li ><a href="#method-c-default_line_numbers-3D">::default_line_numbers=</a>
-    <li ><a href="#method-c-default_load_external_dtd">::default_load_external_dtd</a>
-    <li ><a href="#method-c-default_load_external_dtd-3D">::default_load_external_dtd=</a>
-    <li ><a href="#method-c-default_options">::default_options</a>
-    <li ><a href="#method-c-default_pedantic_parser">::default_pedantic_parser</a>
-    <li ><a href="#method-c-default_pedantic_parser-3D">::default_pedantic_parser=</a>
     <li ><a href="#method-c-default_save_no_empty_tags">::default_save_no_empty_tags</a>
     <li ><a href="#method-c-default_save_no_empty_tags-3D">::default_save_no_empty_tags=</a>
-    <li ><a href="#method-c-default_substitute_entities">::default_substitute_entities</a>
-    <li ><a href="#method-c-default_substitute_entities-3D">::default_substitute_entities=</a>
     <li ><a href="#method-c-default_tree_indent_string">::default_tree_indent_string</a>
     <li ><a href="#method-c-default_tree_indent_string-3D">::default_tree_indent_string=</a>
-    <li ><a href="#method-c-default_validity_checking">::default_validity_checking</a>
-    <li ><a href="#method-c-default_validity_checking-3D">::default_validity_checking=</a>
-    <li ><a href="#method-c-default_warnings">::default_warnings</a>
-    <li ><a href="#method-c-default_warnings-3D">::default_warnings=</a>
     <li ><a href="#method-c-enabled_automata-3F">::enabled_automata?</a>
     <li ><a href="#method-c-enabled_c14n-3F">::enabled_c14n?</a>
     <li ><a href="#method-c-enabled_catalog-3F">::enabled_catalog?</a>
@@ -110,7 +93,6 @@
     <li ><a href="#method-c-enabled_xpath-3F">::enabled_xpath?</a>
     <li ><a href="#method-c-enabled_xpointer-3F">::enabled_xpointer?</a>
     <li ><a href="#method-c-enabled_zlib-3F">::enabled_zlib?</a>
-    <li ><a href="#method-c-features">::features</a>
     <li ><a href="#method-c-indent_tree_output">::indent_tree_output</a>
     <li ><a href="#method-c-indent_tree_output-3D">::indent_tree_output=</a>
     <li ><a href="#method-c-memory_dump">::memory_dump</a>
@@ -157,11 +139,13 @@
        </header>
 
       <div id="method-c-catalog_dump" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            catalog_dump &rarr; true
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              catalog_dump &rarr; true
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -180,11 +164,13 @@
       </div>
 
       <div id="method-c-catalog_remove" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            catalog_remove(catalog) &rarr; true
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              catalog_remove(catalog) &rarr; true
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -204,11 +190,13 @@
       </div>
 
       <div id="method-c-check_lib_versions" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            check_lib_versions &rarr; true
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              check_lib_versions &rarr; true
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -226,77 +214,14 @@
 
       </div>
 
-      <div id="method-c-debug_entities" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            debug_entities &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether included-entity debugging is enabled. (Requires Libxml to be compiled with debugging support)</p>
-
-          <div class="method-source-code" id="debug_entities-source">
-            <pre>static VALUE rxml_debug_entities_get(VALUE klass)
-{
-#ifdef LIBXML_DEBUG_ENABLED
-  if (xmlParserDebugEntities)
-  return(Qtrue);
-  else
-  return(Qfalse);
-#else
-  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);
-  return (Qfalse);
-#endif
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-debug_entities-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            debug_entities = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Enable or disable included-entity debugging. (Requires Libxml to be compiled with debugging support)</p>
-
-          <div class="method-source-code" id="debug_entities-3D-source">
-            <pre>static VALUE rxml_debug_entities_set(VALUE klass, VALUE value)
-{
-#ifdef LIBXML_DEBUG_ENABLED
-  if (value == Qfalse)
-  {
-    xmlParserDebugEntities = 0;
-    return(Qfalse);
-  }
-  else
-  {
-    xmlParserDebugEntities = 1;
-    return(Qtrue);
-  }
-#else
-  rb_warn(&quot;libxml was compiled with debugging turned off&quot;);
-#endif
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-c-default_compression" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_compression &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_compression &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -319,11 +244,13 @@
       </div>
 
       <div id="method-c-default_compression-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_compression = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_compression = true|false
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -347,263 +274,14 @@
 
       </div>
 
-      <div id="method-c-default_keep_blanks" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_keep_blanks &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers retain whitespace by default.</p>
-
-          <div class="method-source-code" id="default_keep_blanks-source">
-            <pre>static VALUE rxml_default_keep_blanks_get(VALUE klass)
-{
-  if (xmlKeepBlanksDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_keep_blanks-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_keep_blanks = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers retain whitespace by default.</p>
-
-          <div class="method-source-code" id="default_keep_blanks-3D-source">
-            <pre>static VALUE rxml_default_keep_blanks_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlKeepBlanksDefaultValue = 0;
-    return (Qfalse);
-  }
-  else if (value == Qtrue)
-  {
-    xmlKeepBlanksDefaultValue = 1;
-    return (Qtrue);
-  }
-  else
-  {
-    rb_raise(rb_eArgError, &quot;Invalid argument, must be a boolean&quot;);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_line_numbers" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_line_numbers &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers retain line-numbers by default.</p>
-
-          <div class="method-source-code" id="default_line_numbers-source">
-            <pre>static VALUE rxml_default_line_numbers_get(VALUE klass)
-{
-  if (xmlLineNumbersDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_line_numbers-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_line_numbers = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers retain line-numbers by default.</p>
-
-          <div class="method-source-code" id="default_line_numbers-3D-source">
-            <pre>static VALUE rxml_default_line_numbers_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlLineNumbersDefault(0);
-    return (Qfalse);
-  }
-  else
-  {
-    xmlLineNumbersDefault(1);
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_load_external_dtd" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_load_external_dtd &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers load external DTDs by default.</p>
-
-          <div class="method-source-code" id="default_load_external_dtd-source">
-            <pre>static VALUE rxml_default_load_external_dtd_get(VALUE klass)
-{
-  if (xmlLoadExtDtdDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_load_external_dtd-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_load_external_dtd = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers load external DTDs by default.</p>
-
-          <div class="method-source-code" id="default_load_external_dtd-3D-source">
-            <pre>static VALUE rxml_default_load_external_dtd_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlLoadExtDtdDefaultValue = 0;
-    return (Qfalse);
-  }
-  else
-  {
-    xmlLoadExtDtdDefaultValue = 1;
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_options" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_options &rarr; int
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Returns an integer that summarize libxml2’s default options.</p>
-
-          <div class="method-source-code" id="default_options-source">
-            <pre>static VALUE rxml_default_options_get(VALUE klass)
-{
-  int options = rxml_libxml_default_options();
-  return INT2NUM(options);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_pedantic_parser" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_pedantic_parser &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers are pedantic by default.</p>
-
-          <div class="method-source-code" id="default_pedantic_parser-source">
-            <pre>static VALUE rxml_default_pedantic_parser_get(VALUE klass)
-{
-  if (xmlPedanticParserDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_pedantic_parser-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_pedantic_parser = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers are pedantic by default.</p>
-
-          <div class="method-source-code" id="default_pedantic_parser-3D-source">
-            <pre>static VALUE rxml_default_pedantic_parser_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlPedanticParserDefault(0);
-    return (Qfalse);
-  }
-  else
-  {
-    xmlPedanticParserDefault(1);
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-c-default_save_no_empty_tags" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_save_no_empty_tags &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_save_no_empty_tags &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -624,11 +302,13 @@
       </div>
 
       <div id="method-c-default_save_no_empty_tags-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_save_no_empty_tags = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_save_no_empty_tags = true|false
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -658,68 +338,14 @@
 
       </div>
 
-      <div id="method-c-default_substitute_entities" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_substitute_entities &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers perform inline entity substitution (for external entities) by default.</p>
-
-          <div class="method-source-code" id="default_substitute_entities-source">
-            <pre>static VALUE rxml_default_substitute_entities_get(VALUE klass)
-{
-  if (xmlSubstituteEntitiesDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_substitute_entities-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_substitute_entities = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers perform inline entity substitution (for external entities) by default.</p>
-
-          <div class="method-source-code" id="default_substitute_entities-3D-source">
-            <pre>static VALUE rxml_default_substitute_entities_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlSubstituteEntitiesDefault(0);
-    return (Qfalse);
-  }
-  else
-  {
-    xmlSubstituteEntitiesDefault(1);
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-c-default_tree_indent_string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_tree_indent_string &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_tree_indent_string &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -740,11 +366,13 @@
       </div>
 
       <div id="method-c-default_tree_indent_string-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_tree_indent_string = &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default_tree_indent_string = &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -763,124 +391,14 @@
 
       </div>
 
-      <div id="method-c-default_validity_checking" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_validity_checking &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers perform <a href="XML.html"><code>XML</code></a> validation by default.</p>
-
-          <div class="method-source-code" id="default_validity_checking-source">
-            <pre>static VALUE rxml_default_validity_checking_get(VALUE klass)
-{
-  if (xmlDoValidityCheckingDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_validity_checking-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_validity_checking = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers perform <a href="XML.html"><code>XML</code></a> validation by default.</p>
-
-          <div class="method-source-code" id="default_validity_checking-3D-source">
-            <pre>static VALUE rxml_default_validity_checking_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlDoValidityCheckingDefaultValue = 0;
-    return (Qfalse);
-  }
-  else
-  {
-    xmlDoValidityCheckingDefaultValue = 1;
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_warnings" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_warnings &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Determine whether parsers output warnings by default.</p>
-
-          <div class="method-source-code" id="default_warnings-source">
-            <pre>static VALUE rxml_default_warnings_get(VALUE klass)
-{
-  if (xmlGetWarningsDefaultValue)
-    return (Qtrue);
-  else
-    return (Qfalse);
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
-      <div id="method-c-default_warnings-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default_warnings = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Controls whether parsers output warnings by default.</p>
-
-          <div class="method-source-code" id="default_warnings-3D-source">
-            <pre>static VALUE rxml_default_warnings_set(VALUE klass, VALUE value)
-{
-  if (value == Qfalse)
-  {
-    xmlGetWarningsDefaultValue = 0;
-    return (Qfalse);
-  }
-  else
-  {
-    xmlGetWarningsDefaultValue = 1;
-    return (Qtrue);
-  }
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-c-enabled_automata-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_automata? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_automata? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -902,11 +420,13 @@
       </div>
 
       <div id="method-c-enabled_c14n-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_c14n? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_c14n? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -928,11 +448,13 @@
       </div>
 
       <div id="method-c-enabled_catalog-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_catalog? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_catalog? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -954,11 +476,13 @@
       </div>
 
       <div id="method-c-enabled_debug-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_debug? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_debug? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -980,11 +504,13 @@
       </div>
 
       <div id="method-c-enabled_docbook-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_docbook? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_docbook? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1006,11 +532,13 @@
       </div>
 
       <div id="method-c-enabled_ftp-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_ftp? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_ftp? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1032,11 +560,13 @@
       </div>
 
       <div id="method-c-enabled_html-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_html? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_html? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1058,11 +588,13 @@
       </div>
 
       <div id="method-c-enabled_http-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_http? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_http? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1084,11 +616,13 @@
       </div>
 
       <div id="method-c-enabled_iconv-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_iconv? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_iconv? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1110,11 +644,13 @@
       </div>
 
       <div id="method-c-enabled_memory_debug-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_memory_debug? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_memory_debug? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1136,11 +672,13 @@
       </div>
 
       <div id="method-c-enabled_regexp-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_regexp? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_regexp? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1162,11 +700,13 @@
       </div>
 
       <div id="method-c-enabled_schemas-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_schemas? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_schemas? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1188,11 +728,13 @@
       </div>
 
       <div id="method-c-enabled_thread-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_thread? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_thread? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1225,11 +767,13 @@
       </div>
 
       <div id="method-c-enabled_unicode-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_unicode? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_unicode? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1251,11 +795,13 @@
       </div>
 
       <div id="method-c-enabled_xinclude-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_xinclude? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_xinclude? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1277,11 +823,13 @@
       </div>
 
       <div id="method-c-enabled_xpath-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_xpath? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_xpath? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1303,11 +851,13 @@
       </div>
 
       <div id="method-c-enabled_xpointer-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_xpointer? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_xpointer? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1329,11 +879,13 @@
       </div>
 
       <div id="method-c-enabled_zlib-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enabled_zlib? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enabled_zlib? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1354,61 +906,14 @@
 
       </div>
 
-      <div id="method-c-features" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            features &rarr; [&quot;feature&quot;, ..., &quot;feature&quot;]
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-
-        <div class="method-description">
-          <p>Obtains an array of strings representing features supported (and enabled) by the installed libxml.</p>
-
-          <div class="method-source-code" id="features-source">
-            <pre>static VALUE rxml_features(VALUE klass)
-{
-#ifndef LIBXML_LEGACY_ENABLED
-  return Qnil;
-#else
-  VALUE arr, str;
-  int i, len = MAX_LIBXML_FEATURES_LEN;
-  char **list = NULL;
-
-  list = ALLOC_N(char *,MAX_LIBXML_FEATURES_LEN);
-  MEMZERO(list, char *, MAX_LIBXML_FEATURES_LEN);
-
-  arr = rb_ary_new();
-  if (xmlGetFeaturesList(&amp;len, (const char **) list) == -1)
-    return Qnil;
-
-  for (i = 0; i &lt; len; i++)
-  {
-    str = rb_str_new2((const char *) list[i]);
-    rb_gc_unregister_address(&amp;str);
-    rb_ary_push(arr, str);
-  }
-
-  if (len == MAX_LIBXML_FEATURES_LEN)
-    rb_warn(
-        &quot;Please contact libxml-devel@rubyforge.org and ask to have the \&quot;MAX_LIBXML_FEATURES_LEN increased\&quot; because you could possibly be seeing an incomplete list&quot;);
-
-  ruby_xfree(list);
-  return (arr);
-#endif /* LIBXML_LEGACY_ENABLED */
-}</pre>
-          </div>
-        </div>
-
-
-      </div>
-
       <div id="method-c-indent_tree_output" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            indent_tree_output &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              indent_tree_output &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1429,11 +934,13 @@
       </div>
 
       <div id="method-c-indent_tree_output-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            indent_tree_output = true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              indent_tree_output = true|false
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1464,11 +971,13 @@
       </div>
 
       <div id="method-c-memory_dump" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            memory_dump &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              memory_dump &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1492,11 +1001,13 @@
       </div>
 
       <div id="method-c-memory_used" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            memory_used &rarr; num_bytes
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              memory_used &rarr; num_bytes
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1526,7 +1037,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

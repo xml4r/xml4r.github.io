@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -102,7 +102,7 @@
 
   <section class="description">
     
-<p>The <a href="Namespace.html"><code>Namespace</code></a> class represents an <a href="../XML.html"><code>XML</code></a> namespace. To add a namespace to a node, create a new instance of this class.  Note that this does <strong>not</strong> assign the node to the namespace. To do that see the  <a href="Namespaces.html#method-i-namespace"><code>XML::Namespaces#namespace</code></a> method.</p>
+<p>The <a href="Namespace.html"><code>Namespace</code></a> class represents an <a href="../XML.html"><code>XML</code></a> namespace. To add a namespace to a node, create a new instance of this class.  Note that this does <strong>not</strong> assign the node to the namespace. To do that see the <a href="Namespaces.html#method-i-namespace"><code>XML::Namespaces#namespace</code></a> method.</p>
 
 <p>Usage:</p>
 
@@ -126,11 +126,13 @@
        </header>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            initialize(node, &quot;prefix&quot;, &quot;href&quot;) &rarr; XML::Namespace
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              initialize(node, &quot;prefix&quot;, &quot;href&quot;) &rarr; XML::Namespace
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -152,9 +154,6 @@
   xmlPrefix = NIL_P(prefix) ? NULL : (xmlChar *)StringValuePtr(prefix);
   xns = xmlNewNs(xnode, (xmlChar*) StringValuePtr(href), xmlPrefix);
 
-  if (!xns)
-    rxml_raise(&amp;xmlLastError);
-
   DATA_PTR(self) = xns;
   return self;
 }</pre>
@@ -172,11 +171,13 @@
        </header>
 
       <div id="method-i-3C-3D-3E" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            namespace1 &lt;&rarr; namespace2
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              namespace1 &lt;&rarr; namespace2
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -202,11 +203,13 @@
       </div>
 
       <div id="method-i-each" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            each {|ns| .. }
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              each {|ns| .. }
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -235,11 +238,13 @@ end</pre>
       </div>
 
       <div id="method-i-href" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            href &rarr; &quot;href&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              href &rarr; &quot;href&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -267,11 +272,13 @@ end</pre>
       </div>
 
       <div id="method-i-next" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            next &rarr; XML::Namespace
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              next &rarr; XML::Namespace
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -301,11 +308,13 @@ end</pre>
       </div>
 
       <div id="method-i-node_type" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            node_type &rarr; num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              node_type &rarr; num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -325,11 +334,13 @@ end</pre>
       </div>
 
       <div id="method-i-prefix" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            prefix &rarr; &quot;prefix&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              prefix &rarr; &quot;prefix&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -359,11 +370,13 @@ end</pre>
       </div>
 
       <div id="method-i-to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            to_s &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              to_s &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -397,7 +410,7 @@ end</pre>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

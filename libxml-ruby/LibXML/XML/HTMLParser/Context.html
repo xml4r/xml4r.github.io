@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -107,11 +107,13 @@
        </header>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser::Context.file(file) &rarr; XML::HTMLParser::Context
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser::Context.file(file) &rarr; XML::HTMLParser::Context
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -119,20 +121,24 @@
 
 <p>Parameters:</p>
 
-<pre>file - A filename or uri.</pre>
+<pre>file - A filename or uri
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
 
           <div class="method-source-code" id="file-source">
-            <pre>static VALUE rxml_html_parser_context_file(VALUE klass, VALUE file)
+            <pre>static VALUE rxml_html_parser_context_file(int argc, VALUE* argv, VALUE klass)
 {
+  VALUE file, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;file, &amp;options);
+
   htmlParserCtxtPtr ctxt = htmlCreateFileParserCtxt(StringValuePtr(file), NULL);
   if (!ctxt)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
      xmlCtxtUseOptionsInternal (called below) initialize slightly different
      context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
      sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
-  htmlCtxtUseOptions(ctxt, rxml_libxml_default_options());
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
 
   return rxml_html_parser_context_wrap(ctxt);
 }</pre>
@@ -143,11 +149,13 @@
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser::Context.io(io) &rarr; XML::HTMLParser::Context
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser::Context.io(io) &rarr; XML::HTMLParser::Context
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -155,11 +163,15 @@
 
 <p>Parameters:</p>
 
-<pre>io - A ruby IO object.</pre>
+<pre>io - A ruby IO object
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
 
           <div class="method-source-code" id="io-source">
-            <pre>static VALUE rxml_html_parser_context_io(VALUE klass, VALUE io)
+            <pre>static VALUE rxml_html_parser_context_io(int argc, VALUE* argv, VALUE klass)
 {
+  VALUE io, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;io, &amp;options);
+
   VALUE result;
   htmlParserCtxtPtr ctxt;
   xmlParserInputBufferPtr input;
@@ -175,14 +187,14 @@
   if (!ctxt)
   {
     xmlFreeParserInputBuffer(input);
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
   }
 
   /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
      xmlCtxtUseOptionsInternal (called below) initialize slightly different
      context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
      sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
-  htmlCtxtUseOptions(ctxt, rxml_libxml_default_options());
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
 
   stream = xmlNewIOInputStream(ctxt, input, XML_CHAR_ENCODING_NONE);
 
@@ -190,7 +202,7 @@
   {
     xmlFreeParserInputBuffer(input);
     xmlFreeParserCtxt(ctxt);
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
   }
   inputPush(ctxt, stream);
   result = rxml_html_parser_context_wrap(ctxt);
@@ -207,11 +219,13 @@
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::HTMLParser::Context.string(string) &rarr; XML::HTMLParser::Context
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::HTMLParser::Context.string(string) &rarr; XML::HTMLParser::Context
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -219,31 +233,36 @@
 
 <p>Parameters:</p>
 
-<pre>string - A string that contains the data to parse.</pre>
+<pre>string - A string that contains the data to parse
+options - A or&#39;ed together list of LibXML::XML::HTMLParser::Options values</pre>
 
           <div class="method-source-code" id="string-source">
-            <pre>static VALUE rxml_html_parser_context_string(VALUE klass, VALUE string)
+            <pre>static VALUE rxml_html_parser_context_string(int argc, VALUE* argv, VALUE klass)
 {
-  htmlParserCtxtPtr ctxt;
+  VALUE string, options;
+  rb_scan_args(argc, argv, &quot;11&quot;, &amp;string, &amp;options);
+
   Check_Type(string, T_STRING);
 
   if (RSTRING_LEN(string) == 0)
     rb_raise(rb_eArgError, &quot;Must specify a string with one or more characters&quot;);
 
-  ctxt = xmlCreateMemoryParserCtxt(StringValuePtr(string),
+  htmlParserCtxtPtr ctxt = xmlCreateMemoryParserCtxt(StringValuePtr(string),
                                    (int)RSTRING_LEN(string));
   if (!ctxt)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   /* This is annoying, but xmlInitParserCtxt (called indirectly above) and 
      xmlCtxtUseOptionsInternal (called below) initialize slightly different
      context options, in particular XML_PARSE_NODICT which xmlInitParserCtxt
      sets to 0 and xmlCtxtUseOptionsInternal sets to 1.  So we have to call both. */
-  htmlCtxtUseOptions(ctxt, rxml_libxml_default_options());
+  htmlCtxtUseOptions(ctxt, options == Qnil ? 0 : NUM2INT(options));
 
-  htmlDefaultSAXHandlerInit();
-  if (ctxt-&gt;sax != NULL)
-    memcpy(ctxt-&gt;sax, &amp;htmlDefaultSAXHandler, sizeof(xmlSAXHandlerV1));
+  // Setup sax handler
+  // TODO - there must be a better way? The sax handler is initialized for XML, but we want
+  // to use HTML
+  memset(ctxt-&gt;sax, 0, sizeof(xmlSAXHandler));
+  xmlSAX2InitHtmlDefaultSAXHandler(ctxt-&gt;sax);
   
   return rxml_html_parser_context_wrap(ctxt);
 }</pre>
@@ -261,11 +280,13 @@
        </header>
 
       <div id="method-i-close" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            close &rarr; nil
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              close &rarr; nil
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -291,11 +312,13 @@
       </div>
 
       <div id="method-i-disable_cdata-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            disable_cdata = (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              disable_cdata = (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -314,7 +337,7 @@
   if (value)
     ctxt-&gt;sax-&gt;cdataBlock = NULL;
   else
-    ctxt-&gt;sax-&gt;cdataBlock = htmlDefaultSAXHandler.cdataBlock;
+    ctxt-&gt;sax-&gt;cdataBlock = xmlSAX2CDataBlock;
 
   return value;
 }</pre>
@@ -325,20 +348,22 @@
       </div>
 
       <div id="method-i-options-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            options = XML::Parser::Options::NOENT |
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Parser::Options::NOCDATA
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              options = XML::Parser::Options::NOENT |
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Parser::Options::NOCDATA
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Provides control over the execution of a parser.  Valid values  are the constants defined on <a href="../Parser/Options.html"><code>XML::Parser::Options</code></a>.  Multiple options can be combined by using Bitwise OR (|).</p>
+          <p>Provides control over the execution of a parser.  Valid values are the constants defined on <a href="../Parser/Options.html"><code>XML::Parser::Options</code></a>.  Multiple options can be combined by using Bitwise OR (|).</p>
 
           <div class="method-source-code" id="options-3D-source">
             <pre>static VALUE rxml_html_parser_context_options_set(VALUE self, VALUE options)
@@ -375,7 +400,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

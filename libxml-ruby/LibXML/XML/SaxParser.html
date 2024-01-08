@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -142,11 +142,13 @@
        </header>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::SaxParser.file(path) &rarr; XML::SaxParser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::SaxParser.file(path) &rarr; XML::SaxParser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -165,16 +167,18 @@
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::SaxParser.io(io) &rarr; XML::SaxParser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::SaxParser.io(io, :encoding =&gt; XML::Encoding::UTF_8) &rarr; XML::SaxParser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::SaxParser.io(io) &rarr; XML::SaxParser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::SaxParser.io(io, :encoding =&gt; XML::Encoding::UTF_8) &rarr; XML::SaxParser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -199,15 +203,17 @@
       </div>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            initialize(context) &rarr; XML::Parser
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              initialize(context) &rarr; XML::Parser
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Creates a new <a href="Parser.html"><code>XML::Parser</code></a> from the specified  <a href="Parser/Context.html"><code>XML::Parser::Context</code></a>.</p>
+          <p>Creates a new <a href="Parser.html"><code>XML::Parser</code></a> from the specified <a href="Parser/Context.html"><code>XML::Parser::Context</code></a>.</p>
 
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_sax_parser_initialize(int argc, VALUE *argv, VALUE self)
@@ -231,11 +237,13 @@
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::SaxParser.string(string)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::SaxParser.string(string)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -261,11 +269,13 @@
        </header>
 
       <div id="method-i-parse" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            parse &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              parse &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -274,23 +284,15 @@
           <div class="method-source-code" id="parse-source">
             <pre>static VALUE rxml_sax_parser_parse(VALUE self)
 {
-  int status;
   VALUE context = rb_ivar_get(self, CONTEXT_ATTR);
   xmlParserCtxtPtr ctxt;
   Data_Get_Struct(context, xmlParserCtxt, ctxt);
 
   ctxt-&gt;sax2 = 1;
         ctxt-&gt;userData = (void*)rb_ivar_get(self, CALLBACKS_ATTR);
-
-  if (ctxt-&gt;sax != (xmlSAXHandlerPtr) &amp;xmlDefaultSAXHandler)
-    xmlFree(ctxt-&gt;sax);
-    
-  ctxt-&gt;sax = (xmlSAXHandlerPtr) xmlMalloc(sizeof(rxml_sax_handler));
-  if (ctxt-&gt;sax == NULL)
-    rb_fatal(&quot;Not enough memory.&quot;);
   memcpy(ctxt-&gt;sax, &amp;rxml_sax_handler, sizeof(rxml_sax_handler));
     
-  status = xmlParseDocument(ctxt);
+  int status = xmlParseDocument(ctxt);
 
   /* Now check the parsing result*/
   if (status == -1 || !ctxt-&gt;wellFormed)
@@ -313,7 +315,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

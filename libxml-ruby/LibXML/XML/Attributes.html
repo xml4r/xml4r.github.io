@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -141,11 +141,13 @@ attribute.value == &#39;foo&#39;</pre>
        </header>
 
       <div id="method-i-5B-5D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            attributes[&quot;name&quot;] &rarr; String
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              attributes[&quot;name&quot;] &rarr; String
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -172,11 +174,13 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-5B-5D-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            attributes[&quot;name&quot;] = &quot;value&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              attributes[&quot;name&quot;] = &quot;value&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -213,11 +217,13 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-each" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            each {block} &rarr; XML::Attr
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              each {block} &rarr; XML::Attr
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -255,11 +261,13 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-first" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            first &rarr; XML::Attr
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              first &rarr; XML::Attr
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -292,15 +300,17 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-get_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            get_attribute(&quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              get_attribute(&quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Returns the specified attribute.  If the attribute does not  exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
+          <p>Returns the specified attribute.  If the attribute does not exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
 
 <p>name: The name of the attribute, not including a namespace.</p>
 
@@ -333,15 +343,17 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-get_attribute_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            get_attribute_ns(&quot;namespace&quot;, &quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              get_attribute_ns(&quot;namespace&quot;, &quot;name&quot;) &rarr; (XML::Attr | XML::AtrrDecl)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Returns the specified attribute.  If the attribute does not  exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
+          <p>Returns the specified attribute.  If the attribute does not exist but the document has an associated DTD that defines a default value for the attribute, then a <a href="AttrDecl.html"><code>XML::AttrDecl</code></a> is returned.</p>
 
 <p>namespace: The URI of the attribute’s namespace. name: The name of the attribute, not including a namespace.</p>
 
@@ -376,11 +388,13 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-length" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            length &rarr; Integer
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              length &rarr; Integer
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -414,11 +428,13 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-node" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            node &rarr; XML::Node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              node &rarr; XML::Node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -441,10 +457,12 @@ attribute.value == &#39;foo&#39;</pre>
       </div>
 
       <div id="method-i-to_h" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">to_h</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">to_h</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -472,7 +490,7 @@ attribute.value == &#39;foo&#39;</pre>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -201,11 +201,13 @@
        </header>
 
       <div id="method-c-document" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.document(document) &rarr; XML::Document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.document(document) &rarr; XML::Document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -227,29 +229,32 @@
       </div>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.file(path) &rarr; XML::Document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.file(path, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Document
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.file(path) &rarr; XML::Document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.file(path, encoding: XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              options: XML::Parser::Options::NOENT) &rarr; XML::Document
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
           <p>Creates a new document from the specified file or uri.</p>
 
-<p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
+<p>Parameters:</p>
 
-<pre>encoding - The document encoding, defaults to nil. Valid values
+<pre>path - Path to file
+encoding - The document encoding, defaults to nil. Valid values
            are the encoding constants defined on XML::Encoding.
 options - Parser options.  Valid values are the constants defined on
           XML::Parser::Options.  Mutliple options can be combined
@@ -257,8 +262,8 @@ options - Parser options.  Valid values are the constants defined on
 
           <div class="method-source-code" id="file-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
-<span class="line-num">33</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})
-<span class="line-num">34</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
+<span class="line-num">33</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
+<span class="line-num">34</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">35</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -267,26 +272,28 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.io(io) &rarr; XML::Document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.io(io, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options &rarr; XML::Parser::Options::NOENT
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.io(io) &rarr; XML::Document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.io(io, :encoding &rarr; XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :options &rarr; XML::Parser::Options::NOENT
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -314,11 +321,13 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.initialize(xml_version = 1.0) &rarr; document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.initialize(xml_version = 1.0) &rarr; document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -358,34 +367,37 @@ options - Parser options.  Valid values are the constants defined on
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.string(string) &rarr; XML::Document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Document.string(string, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options &rarr; XML::Parser::Options::NOENT
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :base_uri=&quot;http://libxml.org&quot;) &rarr; XML::Document
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.string(string) &rarr; XML::Document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Document.string(string, encoding: XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              options: XML::Parser::Options::NOENT
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              base_uri: &quot;http://libxml.org&quot;) &rarr; XML::Document
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
           <p>Creates a new document from the specified string.</p>
 
-<p>You may provide an optional hash table to control how the parsing is performed.  Valid options are:</p>
+<p>Parameters:</p>
 
-<pre>base_uri - The base url for the parsed document.
+<pre>string - String to parse
+base_uri - The base url for the parsed document.
 encoding - The document encoding, defaults to nil. Valid values
            are the encoding constants defined on XML::Encoding.
 options  - Parser options.  Valid values are the constants defined on
@@ -394,8 +406,8 @@ options  - Parser options.  Valid values are the constants defined on
 
           <div class="method-source-code" id="string-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/document.rb</span>
-<span class="line-num">75</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span> = {})
-<span class="line-num">76</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
+<span class="line-num">75</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">encoding:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">options:</span> <span class="ruby-keyword">nil</span>)
+<span class="line-num">76</span>   <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">string</span>(<span class="ruby-identifier">value</span>, <span class="ruby-value">base_uri:</span> <span class="ruby-identifier">base_uri</span>, <span class="ruby-value">encoding:</span> <span class="ruby-identifier">encoding</span>, <span class="ruby-value">options:</span> <span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>
 <span class="line-num">77</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -411,10 +423,12 @@ options  - Parser options.  Valid values are the constants defined on
        </header>
 
       <div id="method-i-canonicalize" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">canonicalize</span><span
-            class="method-args">(p1 = v1)</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">canonicalize</span><span
+              class="method-args">(p1 = v1)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -573,11 +587,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-child" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            child &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              child &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -601,11 +617,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-child-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            child? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              child? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -629,11 +647,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-compression" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            compression &rarr; num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              compression &rarr; num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -665,11 +685,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-compression-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            compression = num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              compression = num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -711,11 +733,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-compression-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            compression? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              compression? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -745,11 +769,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-context" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            context(namespaces=nil) &rarr; XPath::Context
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              context(namespaces=nil) &rarr; XPath::Context
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -773,11 +799,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-debug" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            debug &rarr; true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              debug &rarr; true|false
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -803,11 +831,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-encoding" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            encoding &rarr; XML::Encoding::UTF_8
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              encoding &rarr; XML::Encoding::UTF_8
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -830,11 +860,13 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-encoding-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            encoding = XML::Encoding::UTF_8
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              encoding = XML::Encoding::UTF_8
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -861,15 +893,17 @@ rxml_document_canonicalize(int argc, VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-find" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            find(xpath, nslist=nil) &rarr; XML::XPath::Object
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              find(xpath, nslist=nil) &rarr; XML::XPath::Object
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Return the nodes matching the specified xpath expression,  optionally using the specified namespace.  For more  information about working with namespaces, please refer to the <a href="XPath.html"><code>XML::XPath</code></a> documentation.</p>
+          <p>Return the nodes matching the specified xpath expression, optionally using the specified namespace.  For more information about working with namespaces, please refer to the <a href="XPath.html"><code>XML::XPath</code></a> documentation.</p>
 
 <p>Parameters:</p>
 <ul><li>
@@ -902,10 +936,12 @@ end</pre>
       </div>
 
       <div id="method-i-find_first" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">find_first</span><span
-            class="method-args">(xpath, nslist = nil)</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">find_first</span><span
+              class="method-args">(xpath, nslist = nil)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -923,11 +959,13 @@ end</pre>
       </div>
 
       <div id="method-i-import" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            import(node) &rarr; XML::Node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              import(node) &rarr; XML::Node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -947,7 +985,7 @@ end</pre>
   xresult = xmlDocCopyNode(xnode, xdoc, 1);
 
   if (xresult == NULL)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return rxml_node_wrap(xresult);
 }</pre>
@@ -958,11 +996,13 @@ end</pre>
       </div>
 
       <div id="method-i-last" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            last &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              last &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -987,11 +1027,13 @@ end</pre>
       </div>
 
       <div id="method-i-last-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            last? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              last? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1016,11 +1058,13 @@ end</pre>
       </div>
 
       <div id="method-i-next" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            next &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              next &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1045,11 +1089,13 @@ end</pre>
       </div>
 
       <div id="method-i-next-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            next? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              next? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1074,11 +1120,13 @@ end</pre>
       </div>
 
       <div id="method-i-node_type" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            type &rarr; num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              type &rarr; num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1098,10 +1146,12 @@ end</pre>
       </div>
 
       <div id="method-i-node_type_name" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">node_type_name</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">node_type_name</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1128,11 +1178,13 @@ end</pre>
       </div>
 
       <div id="method-i-order_elements-21" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            order_elements!
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              order_elements!
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1153,11 +1205,13 @@ end</pre>
       </div>
 
       <div id="method-i-parent" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            parent &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              parent &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1182,11 +1236,13 @@ end</pre>
       </div>
 
       <div id="method-i-parent-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            parent? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              parent? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1211,11 +1267,13 @@ end</pre>
       </div>
 
       <div id="method-i-prev" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            prev &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              prev &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1240,11 +1298,13 @@ end</pre>
       </div>
 
       <div id="method-i-prev-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            prev? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              prev? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1269,11 +1329,13 @@ end</pre>
       </div>
 
       <div id="method-i-rb_encoding" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            rb_encoding &rarr; Encoding
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              rb_encoding &rarr; Encoding
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1296,11 +1358,13 @@ end</pre>
       </div>
 
       <div id="method-i-root" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            root &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              root &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1327,11 +1391,13 @@ end</pre>
       </div>
 
       <div id="method-i-root-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            root = node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              root = node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1366,16 +1432,18 @@ end</pre>
       </div>
 
       <div id="method-i-save" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            save(filename) &rarr; int
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            save(filename, :indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; int
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              save(filename) &rarr; int
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              save(filename, :indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; int
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1425,7 +1493,7 @@ end</pre>
   length = xmlSaveFormatFileEnc(xfilename, xdoc, (const char*)xencoding, indent);
 
   if (length == -1)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return (INT2NUM(length));
 }</pre>
@@ -1436,11 +1504,13 @@ end</pre>
       </div>
 
       <div id="method-i-standalone-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            standalone? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              standalone? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1464,16 +1534,18 @@ end</pre>
       </div>
 
       <div id="method-i-to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            to_s &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            to_s(:indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; &quot;string&quot;
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              to_s &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              to_s(:indent =&gt; true, :encoding =&gt; XML::Encoding::UTF_8) &rarr; &quot;string&quot;
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1528,11 +1600,13 @@ end</pre>
       </div>
 
       <div id="method-i-url" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            url &rarr; &quot;url&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              url &rarr; &quot;url&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1556,11 +1630,13 @@ end</pre>
       </div>
 
       <div id="method-i-validate" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            validate(dtd) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              validate(dtd) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1585,7 +1661,7 @@ end</pre>
   }
   else
   {
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
     return Qfalse;
   }
 }</pre>
@@ -1596,11 +1672,13 @@ end</pre>
       </div>
 
       <div id="method-i-validate_relaxng" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            validate_relaxng(relaxng)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              validate_relaxng(relaxng)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1623,7 +1701,7 @@ end</pre>
   xmlRelaxNGFreeValidCtxt(vptr);
   if (is_invalid)
   {
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
     return Qfalse;
   }
   else
@@ -1638,11 +1716,13 @@ end</pre>
       </div>
 
       <div id="method-i-validate_schema" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            validate_schema(schema)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              validate_schema(schema)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1665,7 +1745,7 @@ end</pre>
   xmlSchemaFreeValidCtxt(vptr);
   if (is_invalid)
   {
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
     return Qfalse;
   }
   else
@@ -1680,11 +1760,13 @@ end</pre>
       </div>
 
       <div id="method-i-version" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            version &rarr; &quot;version&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              version &rarr; &quot;version&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1708,11 +1790,13 @@ end</pre>
       </div>
 
       <div id="method-i-xhtml-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            xhtml? &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              xhtml? &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1737,11 +1821,13 @@ end</pre>
       </div>
 
       <div id="method-i-xinclude" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            xinclude &rarr; num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              xinclude &rarr; num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1763,7 +1849,7 @@ end</pre>
   }
   else
   {
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
     return Qnil;
   }
 #else
@@ -1786,7 +1872,7 @@ end</pre>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

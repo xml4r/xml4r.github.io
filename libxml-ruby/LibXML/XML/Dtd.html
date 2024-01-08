@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -124,31 +124,33 @@
        </header>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Dtd.new(&quot;DTD string&quot;) &rarr; dtd
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Dtd.new(&quot;public&quot;, &quot;system&quot;) &rarr; dtd
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document) &rarr; external subset dtd
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, false) &rarr; internal subset dtd
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, true) &rarr; internal subset dtd
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Dtd.new(&quot;DTD string&quot;) &rarr; dtd
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Dtd.new(&quot;public&quot;, &quot;system&quot;) &rarr; dtd
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document) &rarr; external subset dtd
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, false) &rarr; internal subset dtd
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, true) &rarr; internal subset dtd
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -203,7 +205,7 @@
         xdtd = xmlCreateIntSubset(xdoc, xname, xpublic, xsystem);
 
       if (xdtd == NULL)
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
 
       /* Document will free this dtd now. */
       RDATA(self)-&gt;dfree = NULL;
@@ -223,7 +225,7 @@
         (xmlChar*) StringValuePtr(system));
 
     if (xdtd == NULL)
-      rxml_raise(&amp;xmlLastError);
+      rxml_raise(xmlGetLastError());
 
     DATA_PTR(self) = xdtd;
 
@@ -243,7 +245,7 @@
     xdtd = xmlIOParseDTD(NULL, buffer, enc);
 
     if (xdtd == NULL)
-      rxml_raise(&amp;xmlLastError);
+      rxml_raise(xmlGetLastError());
 
     xmlFree(new_string);
 
@@ -270,11 +272,13 @@
        </header>
 
       <div id="method-i-external_id" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            external_id &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              external_id &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -299,11 +303,13 @@
       </div>
 
       <div id="method-i-name" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            name &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              name &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -328,11 +334,13 @@
       </div>
 
       <div id="method-i-node_type" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            type &rarr; num
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              type &rarr; num
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -352,15 +360,12 @@
       </div>
 
       <div id="method-i-system_id" class="method-detail method-alias">
-        <div class="method-heading">
-          <span class="method-name">system_id</span><span
-            class="method-args">()</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">system_id</span>
+          </div>
         </div>
 
-        <div class="method-description">
-          <p>Obtain this dtd’s URI (for a SYSTEM or PUBLIC DTD).</p>
-
-        </div>
 
 
         <div class="aliases">
@@ -369,11 +374,13 @@
       </div>
 
       <div id="method-i-uri" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            uri &rarr; &quot;string&quot;
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              uri &rarr; &quot;string&quot;
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -407,7 +414,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

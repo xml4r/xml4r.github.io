@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -152,11 +152,13 @@
        </header>
 
       <div id="method-c-document" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Writer::document &rarr; XML::Writer
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Writer::document &rarr; XML::Writer
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -176,7 +178,7 @@
     rwo-&gt;output_type = RXMLW_OUTPUT_DOC;
     if (NULL == (rwo-&gt;writer = xmlNewTextWriterDoc(&amp;doc, 0)))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
     rwo-&gt;output = rxml_document_wrap(doc);
 
@@ -189,11 +191,13 @@
       </div>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Writer::file(path) &rarr; XML::Writer
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Writer::file(path) &rarr; XML::Writer
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -212,7 +216,7 @@
     rwo-&gt;output_type = RXMLW_OUTPUT_NONE;
     if (NULL == (rwo-&gt;writer = xmlNewTextWriterFilename(StringValueCStr(filename), 0)))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
 
     return rxml_writer_wrap(rwo);
@@ -224,11 +228,13 @@
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Writer::io(io) &rarr; XML::Writer
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Writer::io(io) &rarr; XML::Writer
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -253,11 +259,11 @@
     xmlCharEncodingHandlerPtr encodingHdlr = xmlFindCharEncodingHandler(rwo-&gt;encoding-&gt;name);
     if (NULL == (out = xmlOutputBufferCreateIO(rxml_writer_write_callback, NULL, (void*)rwo, encodingHdlr)))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
     if (NULL == (rwo-&gt;writer = xmlNewTextWriter(out)))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
 
     return rxml_writer_wrap(rwo);
@@ -269,11 +275,13 @@
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Writer::string &rarr; XML::Writer
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Writer::string &rarr; XML::Writer
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -291,12 +299,12 @@
     rwo-&gt;output_type = RXMLW_OUTPUT_STRING;
     if (NULL == (rwo-&gt;buffer = xmlBufferCreate()))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
     if (NULL == (rwo-&gt;writer = xmlNewTextWriterMemory(rwo-&gt;buffer, 0)))
     {
         xmlBufferFree(rwo-&gt;buffer);
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
 
     return rxml_writer_wrap(rwo);
@@ -315,11 +323,13 @@
        </header>
 
       <div id="method-i-end_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_attribute &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_attribute &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -337,11 +347,13 @@
       </div>
 
       <div id="method-i-end_cdata" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_cdata &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_cdata &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -359,11 +371,13 @@
       </div>
 
       <div id="method-i-end_comment" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_comment &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_comment &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -381,11 +395,13 @@
       </div>
 
       <div id="method-i-end_document" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_document &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_document &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -403,11 +419,13 @@
       </div>
 
       <div id="method-i-end_dtd" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_dtd &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_dtd &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -425,11 +443,13 @@
       </div>
 
       <div id="method-i-end_dtd_attlist" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_dtd_attlist &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_dtd_attlist &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -447,11 +467,13 @@
       </div>
 
       <div id="method-i-end_dtd_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_dtd_element &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_dtd_element &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -469,11 +491,13 @@
       </div>
 
       <div id="method-i-end_dtd_entity" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_dtd_entity &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_dtd_entity &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -491,11 +515,13 @@
       </div>
 
       <div id="method-i-end_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_element &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_element &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -513,11 +539,13 @@
       </div>
 
       <div id="method-i-end_pi" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            end_pi &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              end_pi &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -535,11 +563,13 @@
       </div>
 
       <div id="method-i-flush" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            flush(empty? = true) &rarr; (num|string)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              flush(empty? = true) &rarr; (num|string)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -557,7 +587,7 @@
     rwo = rxml_textwriter_get(self);
     if (-1 == (ret = xmlTextWriterFlush(rwo-&gt;writer)))
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
 
     if (NULL != rwo-&gt;buffer)
@@ -584,11 +614,13 @@
       </div>
 
       <div id="method-i-full_end_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_full_end_element &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_full_end_element &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -606,11 +638,13 @@
       </div>
 
       <div id="method-i-result" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            result &rarr; (XML::Document|&quot;string&quot;|nil)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              result &rarr; (XML::Document|&quot;string&quot;|nil)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -625,7 +659,7 @@
 
     if (bytesWritten == -1)
     {
-        rxml_raise(&amp;xmlLastError);
+        rxml_raise(xmlGetLastError());
     }
 
     switch (rwo-&gt;output_type)
@@ -653,11 +687,13 @@
       </div>
 
       <div id="method-i-set_indent" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            set_indent(indentation) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              set_indent(indentation) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -683,11 +719,13 @@
       </div>
 
       <div id="method-i-set_indent_string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            set_indent_string(string) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              set_indent_string(string) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -707,11 +745,13 @@
       </div>
 
       <div id="method-i-set_quote_char" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            set_quote_char(...) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              set_quote_char(...) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -744,11 +784,13 @@
       </div>
 
       <div id="method-i-start_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_attribute(name) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_attribute(name) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -766,11 +808,13 @@
       </div>
 
       <div id="method-i-start_attribute_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_attribute_ns(prefix, name, namespaceURI) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_attribute_ns(prefix, name, namespaceURI) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -794,11 +838,13 @@
       </div>
 
       <div id="method-i-start_cdata" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_cdata &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_cdata &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -816,11 +862,13 @@
       </div>
 
       <div id="method-i-start_comment" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_comment &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_comment &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -838,21 +886,23 @@
       </div>
 
       <div id="method-i-start_document" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_document &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_document(:encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :standalone =&gt; true) &rarr; (true|false)
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_document &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_document(:encoding &rarr; XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :standalone =&gt; true) &rarr; (true|false)
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -911,11 +961,13 @@
       </div>
 
       <div id="method-i-start_dtd" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_dtd(qualifiedName, publicId, systemId) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_dtd(qualifiedName, publicId, systemId) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -937,11 +989,13 @@
       </div>
 
       <div id="method-i-start_dtd_attlist" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_dtd_attlist(name) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_dtd_attlist(name) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -959,11 +1013,13 @@
       </div>
 
       <div id="method-i-start_dtd_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_dtd_element(qualifiedName) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_dtd_element(qualifiedName) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -981,11 +1037,13 @@
       </div>
 
       <div id="method-i-start_dtd_entity" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_dtd_entity(name, pe = false) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_dtd_entity(name, pe = false) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1011,11 +1069,13 @@
       </div>
 
       <div id="method-i-start_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_element(name) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_element(name) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1033,11 +1093,13 @@
       </div>
 
       <div id="method-i-start_element_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_element_ns(prefix, name, namespaceURI) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_element_ns(prefix, name, namespaceURI) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1061,11 +1123,13 @@
       </div>
 
       <div id="method-i-start_pi" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            start_pi(target) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              start_pi(target) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1083,11 +1147,13 @@
       </div>
 
       <div id="method-i-write_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_attribute(name, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_attribute(name, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1105,11 +1171,13 @@
       </div>
 
       <div id="method-i-write_attribute_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_attribute_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_attribute_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1141,11 +1209,13 @@
       </div>
 
       <div id="method-i-write_cdata" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_cdata(content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_cdata(content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1163,11 +1233,13 @@
       </div>
 
       <div id="method-i-write_comment" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_comment(content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_comment(content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1185,11 +1257,13 @@
       </div>
 
       <div id="method-i-write_dtd" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd(name [ [ [, publicId ], systemId ], subset ]) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd(name [ [ [, publicId ], systemId ], subset ]) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1232,11 +1306,13 @@
       </div>
 
       <div id="method-i-write_dtd_attlist" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_attlist(name, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_attlist(name, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1258,11 +1334,13 @@
       </div>
 
       <div id="method-i-write_dtd_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_element(name, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_element(name, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1284,11 +1362,13 @@
       </div>
 
       <div id="method-i-write_dtd_entity" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_entity(name, publicId, systemId, ndataid, content, pe) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_entity(name, publicId, systemId, ndataid, content, pe) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1306,11 +1386,13 @@
       </div>
 
       <div id="method-i-write_dtd_external_entity" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_external_entity(name, publicId, systemId, ndataid, pe) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_external_entity(name, publicId, systemId, ndataid, pe) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1341,11 +1423,13 @@
       </div>
 
       <div id="method-i-write_dtd_external_entity_contents" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_external_entity_contents(publicId, systemId, ndataid) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_external_entity_contents(publicId, systemId, ndataid) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1363,11 +1447,13 @@
       </div>
 
       <div id="method-i-write_dtd_internal_entity" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_internal_entity(name, content, pe) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_internal_entity(name, content, pe) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1393,11 +1479,13 @@
       </div>
 
       <div id="method-i-write_dtd_notation" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_dtd_notation(name, publicId, systemId) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_dtd_notation(name, publicId, systemId) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1415,11 +1503,13 @@
       </div>
 
       <div id="method-i-write_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_element(name, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_element(name, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1451,11 +1541,13 @@
       </div>
 
       <div id="method-i-write_element_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_element_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_element_ns(prefix, name, namespaceURI, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1499,11 +1591,13 @@
       </div>
 
       <div id="method-i-write_pi" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_pi(target, content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_pi(target, content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1521,11 +1615,13 @@
       </div>
 
       <div id="method-i-write_raw" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_raw(content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_raw(content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1543,11 +1639,13 @@
       </div>
 
       <div id="method-i-write_string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            write_string(content) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              write_string(content) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1572,7 +1670,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

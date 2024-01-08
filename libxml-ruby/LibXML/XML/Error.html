@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -277,7 +277,7 @@
         <dt id="DOCUMENT_START">DOCUMENT_START
         <dd>
         <dt id="DOMAIN_CODE_MAP">DOMAIN_CODE_MAP
-        <dd><p>Create mapping from domain constant value to keys</p>
+        <dd><p>Create mapping from domain constant values to keys</p>
         <dt id="DTD">DTD
         <dd>
         <dt id="DTD_ATTRIBUTE_DEFAULT">DTD_ATTRIBUTE_DEFAULT
@@ -403,7 +403,7 @@
         <dt id="ERROR">ERROR
         <dd>
         <dt id="ERROR_CODE_MAP">ERROR_CODE_MAP
-        <dd><p>Create mapping from domain constant value to keys</p>
+        <dd><p>Create mapping from error constant values (so need to remove domain_codes) to keys</p>
         <dt id="EXTRA_CONTENT">EXTRA_CONTENT
         <dd>
         <dt id="EXT_ENTITY_STANDALONE">EXT_ENTITY_STANDALONE
@@ -1797,18 +1797,20 @@
        </header>
 
       <div id="method-c-get_handler" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            get_error_handler
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              get_error_handler
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
           <p>Returns the proc that will be called when libxml generates warning, error or fatal error messages.</p>
 
           <div class="method-source-code" id="get_handler-source">
-            <pre>static VALUE rxml_error_get_handler()
+            <pre>static VALUE rxml_error_get_handler(VALUE self)
 {
   VALUE block = rb_cvar_get(eXMLError, ERROR_HANDLER_ID);
   return block;
@@ -1820,11 +1822,13 @@
       </div>
 
       <div id="method-c-reset_handler" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            reset_error_handler
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              reset_error_handler
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1843,11 +1847,13 @@
       </div>
 
       <div id="method-c-set_handler" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            set_error_handler {|error| ... }
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              set_error_handler {|error| ... }
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1883,10 +1889,12 @@
        </header>
 
       <div id="method-i-3D-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">==</span><span
-            class="method-args">(other)</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">==</span><span
+              class="method-args">(other)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1904,10 +1912,12 @@
       </div>
 
       <div id="method-i-code_to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">code_to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">code_to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1916,7 +1926,7 @@
           <div class="method-source-code" id="code_to_s-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/error.rb</span>
 <span class="line-num">76</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">code_to_s</span>
-<span class="line-num">77</span>   <span class="ruby-constant">ERROR_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">code</span>]
+<span class="line-num">77</span>   <span class="ruby-constant">ERROR_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">code</span>].<span class="ruby-identifier">to_s</span>
 <span class="line-num">78</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -1925,10 +1935,12 @@
       </div>
 
       <div id="method-i-domain_to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">domain_to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">domain_to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1937,7 +1949,7 @@
           <div class="method-source-code" id="domain_to_s-source">
             <pre>   <span class="ruby-comment"># File lib/libxml/error.rb</span>
 <span class="line-num">72</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">domain_to_s</span>
-<span class="line-num">73</span>   <span class="ruby-constant">DOMAIN_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">domain</span>]
+<span class="line-num">73</span>   <span class="ruby-constant">DOMAIN_CODE_MAP</span>[<span class="ruby-keyword">self</span>.<span class="ruby-identifier">domain</span>].<span class="ruby-identifier">to_s</span>
 <span class="line-num">74</span> <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -1946,10 +1958,12 @@
       </div>
 
       <div id="method-i-eql-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">eql?</span><span
-            class="method-args">(other)</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">eql?</span><span
+              class="method-args">(other)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1981,10 +1995,12 @@
       </div>
 
       <div id="method-i-level_to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">level_to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">level_to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -2011,10 +2027,12 @@
       </div>
 
       <div id="method-i-to_s" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -2051,7 +2069,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

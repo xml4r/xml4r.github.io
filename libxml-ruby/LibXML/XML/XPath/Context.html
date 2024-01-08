@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -117,11 +117,13 @@
        </header>
 
       <div id="method-c-new" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XPath::Context.new(doc) &rarr; XPath::Context
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XPath::Context.new(doc) &rarr; XPath::Context
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -162,11 +164,13 @@
        </header>
 
       <div id="method-i-disable_cache" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            disable_cache
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              disable_cache
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -180,7 +184,7 @@ rxml_xpath_context_disable_cache(VALUE self)
   Data_Get_Struct(self, xmlXPathContext, xctxt);
 
   if (xmlXPathContextSetCache(xctxt, 0, 0, 0) == -1)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return self;
 }</pre>
@@ -191,11 +195,13 @@ rxml_xpath_context_disable_cache(VALUE self)
       </div>
 
       <div id="method-i-doc" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            doc &rarr; document
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              doc &rarr; document
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -218,15 +224,17 @@ rxml_xpath_context_disable_cache(VALUE self)
       </div>
 
       <div id="method-i-enable_cache" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            enable_cache(size = nil)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              enable_cache(size = nil)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Enables an <a href="Context.html"><code>XPath::Context</code></a>‘s built-in cache.  If the cache is enabled then <a href="../XPath.html"><code>XPath</code></a> objects will be cached internally for reuse. The size parameter controls sets the maximum number of <a href="../XPath.html"><code>XPath</code></a> objects  that will be cached per <a href="../XPath.html"><code>XPath</code></a> object type (node-set, string, number, boolean, and misc objects).  Set size to nil to use the default cache size of 100.</p>
+          <p>Enables an <a href="Context.html"><code>XPath::Context</code></a>‘s built-in cache.  If the cache is enabled then <a href="../XPath.html"><code>XPath</code></a> objects will be cached internally for reuse. The size parameter controls sets the maximum number of <a href="../XPath.html"><code>XPath</code></a> objects that will be cached per <a href="../XPath.html"><code>XPath</code></a> object type (node-set, string, number, boolean, and misc objects).  Set size to nil to use the default cache size of 100.</p>
 
           <div class="method-source-code" id="enable_cache-source">
             <pre>static VALUE
@@ -244,7 +252,7 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
   }
 
   if (xmlXPathContextSetCache(xctxt, 1, value, 0) == -1)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return self;
 }</pre>
@@ -255,15 +263,17 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-find" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            find(&quot;xpath&quot;) &rarr; true|false|number|string|XML::XPath::Object
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              find(&quot;xpath&quot;) &rarr; true|false|number|string|XML::XPath::Object
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
-          <p>Executes the provided xpath function.  The result depends on the execution of the xpath statement.  It may be true, false, a number, a string or  a node set.</p>
+          <p>Executes the provided xpath function.  The result depends on the execution of the xpath statement.  It may be true, false, a number, a string or a node set.</p>
 
           <div class="method-source-code" id="find-source">
             <pre>static VALUE rxml_xpath_context_find(VALUE self, VALUE xpath_expr)
@@ -299,11 +309,13 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-node-3D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            node = node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              node = node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -331,11 +343,13 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-register_namespace" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            register_namespace(prefix, uri) &rarr; (true|false)
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              register_namespace(prefix, uri) &rarr; (true|false)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -372,11 +386,13 @@ rxml_xpath_context_enable_cache(int argc,  VALUE *argv, VALUE self)
       </div>
 
       <div id="method-i-register_namespaces" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            register_namespaces([&quot;prefix:uri&quot;]) &rarr; self
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              register_namespaces([&quot;prefix:uri&quot;]) &rarr; self
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -440,11 +456,13 @@ context.register_namespaces(&#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xl
       </div>
 
       <div id="method-i-register_namespaces_from_node" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            register_namespaces_from_node(node) &rarr; self
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              register_namespaces_from_node(node) &rarr; self
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -517,7 +535,7 @@ context.register_namespaces(&#39;xlink&#39; =&gt; &#39;http://www.w3.org/1999/xl
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

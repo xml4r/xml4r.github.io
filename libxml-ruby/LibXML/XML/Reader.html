@@ -41,7 +41,7 @@
     <div id="search-field-wrapper">
       <input id="search-field" role="combobox" aria-label="Search"
              aria-autocomplete="list" aria-controls="search-results"
-             type="text" name="search" placeholder="Search" spellcheck="false"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
              title="Type to search, Up and Down to navigate, Enter to load">
     </div>
 
@@ -163,7 +163,7 @@
 <span class="ruby-keyword">end</span>
 </pre>
 
-<p>You can also parse documents (see <a href="Reader.html#method-c-document"><code>XML::Reader.document</code></a>),  strings (see <a href="Parser.html#method-c-string"><code>XML::Parser.string</code></a>) and io objects (see <a href="Parser.html#method-c-io"><code>XML::Parser.io</code></a>).</p>
+<p>You can also parse documents (see <a href="Reader.html#method-c-document"><code>XML::Reader.document</code></a>), strings (see <a href="Parser.html#method-c-string"><code>XML::Parser.string</code></a>) and io objects (see <a href="Parser.html#method-c-io"><code>XML::Parser.io</code></a>).</p>
 
 <p>For a more in depth tutorial, albeit in C, see <a href="http://xmlsoft.org/xmlreader.html">xmlsoft.org/xmlreader.html</a>.</p>
 
@@ -252,11 +252,13 @@
        </header>
 
       <div id="method-c-document" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.document(doc) &rarr; XML::Reader
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.document(doc) &rarr; XML::Reader
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -273,7 +275,7 @@
   xreader = xmlReaderWalker(xdoc);
 
   if (xreader == NULL)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return rxml_reader_wrap(xreader);
 }</pre>
@@ -284,21 +286,23 @@
       </div>
 
       <div id="method-c-file" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.file(path) &rarr; XML::Reader
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.file(path, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.file(path) &rarr; XML::Reader
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.file(path, :encoding &rarr; XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -316,34 +320,31 @@ options - Controls the execution of the parser, defaults to 0.
           <div class="method-source-code" id="file-source">
             <pre>static VALUE rxml_reader_file(int argc, VALUE *argv, VALUE klass)
 {
-  xmlTextReaderPtr xreader;
   VALUE path;
   VALUE options;
-
-  const char *xencoding = NULL;
-  int xoptions = 0;
 
   rb_scan_args(argc, argv, &quot;11&quot;, &amp;path, &amp;options);
   Check_Type(path, T_STRING);
 
+  const char* xencoding = NULL;
+  int xoptions = 0;
+
   if (!NIL_P(options))
   {
-    VALUE encoding = Qnil;
-    VALUE parserOptions = Qnil;
-
     Check_Type(options, T_HASH);
 
-    encoding = rb_hash_aref(options, BASE_URI_SYMBOL);
+    VALUE encoding = rb_hash_aref(options, BASE_URI_SYMBOL);
     xencoding = NIL_P(encoding) ? NULL : xmlGetCharEncodingName(NUM2INT(encoding));
 
-    parserOptions = rb_hash_aref(options, OPTIONS_SYMBOL);
+    VALUE parserOptions = rb_hash_aref(options, OPTIONS_SYMBOL);
     xoptions = NIL_P(parserOptions) ? 0 : NUM2INT(parserOptions);
   }
 
-  xreader = xmlReaderForFile(StringValueCStr(path), xencoding, xoptions);
+  xmlTextReaderPtr xreader = xmlReaderForFile(StringValueCStr(path), xencoding, xoptions);
 
+  // Unfortunately libxml2 does not set xmlLastError and just returns a null reader
   if (xreader == NULL)
-    rxml_raise(&amp;xmlLastError);
+    rb_syserr_fail(ENOENT, StringValueCStr(path));
 
   return rxml_reader_wrap(xreader);
 }</pre>
@@ -354,21 +355,23 @@ options - Controls the execution of the parser, defaults to 0.
       </div>
 
       <div id="method-c-io" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.io(io) &rarr; XML::Reader
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.io(io, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.io(io) &rarr; XML::Reader
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.io(io, :encoding &rarr; XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -420,7 +423,7 @@ options - Controls the execution of the parser, defaults to 0.
                            xbaseurl, xencoding, xoptions);
 
   if (xreader == NULL)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   result = rxml_reader_wrap(xreader);
 
@@ -436,21 +439,23 @@ options - Controls the execution of the parser, defaults to 0.
       </div>
 
       <div id="method-c-string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.string(io) &rarr; XML::Reader
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            XML::Reader.string(io, :encoding &rarr; XML::Encoding::UTF_8,
-          </span>
-        </div>
-        <div class="method-heading">
-          <span class="method-callseq">
-            :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
-          </span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.string(io) &rarr; XML::Reader
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              XML::Reader.string(io, :encoding &rarr; XML::Encoding::UTF_8,
+            </span>
+          </div>
+          <div class="method-heading">
+            <span class="method-callseq">
+              :options =&gt; XML::Parser::Options::NOENT) &rarr; XML::Parser
+            </span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -501,7 +506,7 @@ options - Controls the execution of the parser, defaults to 0.
                                xbaseurl, xencoding, xoptions);
 
   if (xreader == NULL)
-    rxml_raise(&amp;xmlLastError);
+    rxml_raise(xmlGetLastError());
 
   return rxml_reader_wrap(xreader);
 }</pre>
@@ -519,11 +524,13 @@ options - Controls the execution of the parser, defaults to 0.
        </header>
 
       <div id="method-i-5B-5D" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            reader[key] &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              reader[key] &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -560,11 +567,13 @@ options - Controls the execution of the parser, defaults to 0.
       </div>
 
       <div id="method-i-attribute_count" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            attribute_count &rarr; count
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              attribute_count &rarr; count
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -583,11 +592,13 @@ options - Controls the execution of the parser, defaults to 0.
       </div>
 
       <div id="method-i-base_uri" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            base_uri &rarr; URI
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              base_uri &rarr; URI
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -609,11 +620,13 @@ options - Controls the execution of the parser, defaults to 0.
       </div>
 
       <div id="method-i-byte_consumed" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            byte_consumed &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              byte_consumed &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -624,7 +637,7 @@ options - Controls the execution of the parser, defaults to 0.
 rxml_reader_byte_consumed(VALUE self)
 {
   xmlTextReaderPtr xreader = rxml_text_reader_get(self);
-  return INT2NUM(xmlTextReaderByteConsumed(xreader));
+  return LONG2NUM(xmlTextReaderByteConsumed(xreader));
 }</pre>
           </div>
         </div>
@@ -633,11 +646,13 @@ rxml_reader_byte_consumed(VALUE self)
       </div>
 
       <div id="method-i-close" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            close &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              close &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -656,11 +671,13 @@ rxml_reader_byte_consumed(VALUE self)
       </div>
 
       <div id="method-i-column_number" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            column_number &rarr; number
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              column_number &rarr; number
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -680,11 +697,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-default-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            default? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              default? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -703,11 +722,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-depth" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            depth &rarr; depth
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              depth &rarr; depth
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -726,11 +747,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-doc" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            document &rarr; doc
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              document &rarr; doc
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -762,11 +785,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-empty_element-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            empty_element? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              empty_element? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -785,11 +810,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-encoding" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            encoding &rarr; XML::Encoding::UTF_8
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              encoding &rarr; XML::Encoding::UTF_8
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -820,11 +847,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-expand" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            expand &rarr; node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              expand &rarr; node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -857,11 +886,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-get_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            get_attribute(localName) &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              get_attribute(localName) &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -890,11 +921,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-get_attribute_no" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            get_attribute_no(index) &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              get_attribute_no(index) &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -923,10 +956,12 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-get_attribute_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-name">get_attribute_ns</span><span
-            class="method-args">(p1, p2)</span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">get_attribute_ns</span><span
+              class="method-args">(p1, p2)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -957,11 +992,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-has_attributes-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            has_attributes? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              has_attributes? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -980,11 +1017,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-has_value-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            has_value? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              has_value? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1003,11 +1042,13 @@ rxml_reader_column_number(VALUE self)
       </div>
 
       <div id="method-i-line_number" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            line_number &rarr; number
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              line_number &rarr; number
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1027,11 +1068,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-local_name" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            local_name &rarr; name
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              local_name &rarr; name
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1053,11 +1096,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-lookup_namespace" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            lookup_namespace(prefix) &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              lookup_namespace(prefix) &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1085,11 +1130,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_attribute(localName) &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_attribute(localName) &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1114,11 +1161,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_attribute_no" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_attribute_no(index) &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_attribute_no(index) &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1142,11 +1191,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_attribute_ns" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_attribute_ns(localName, namespaceURI) &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_attribute_ns(localName, namespaceURI) &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1172,11 +1223,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_element" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_element &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_element &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1195,11 +1248,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_first_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_first_attribute &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_first_attribute &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1218,11 +1273,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-move_to_next_attribute" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            move_to_next_attribute &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              move_to_next_attribute &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1241,11 +1298,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-name" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            name &rarr; name
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              name &rarr; name
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1267,11 +1326,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-namespace_declaration-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            namespace_declaration? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              namespace_declaration? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1290,11 +1351,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-namespace_uri" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            namespace_uri &rarr; URI
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              namespace_uri &rarr; URI
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1316,11 +1379,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-next" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            next &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              next &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1339,11 +1404,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-next_sibling" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            next_sibling &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              next_sibling &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1362,11 +1429,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-node" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            node &rarr; XML::Node
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              node &rarr; XML::Node
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1386,11 +1455,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-node_type" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            node_type &rarr; type
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              node_type &rarr; type
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1409,11 +1480,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-normalization" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            normalization &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              normalization &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1434,11 +1507,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-prefix" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            prefix &rarr; prefix
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              prefix &rarr; prefix
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1460,11 +1535,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-quote_char" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            quote_char &rarr; char
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              quote_char &rarr; char
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1483,11 +1560,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read &rarr; nil|true|false
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read &rarr; nil|true|false
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1503,7 +1582,7 @@ rxml_reader_line_number(VALUE self)
   switch(result)
   {
     case -1:
-      rxml_raise(&amp;xmlLastError);
+      rxml_raise(xmlGetLastError());
       return Qnil;
       break;
     case 0:
@@ -1522,11 +1601,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read_attribute_value" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read_attribute_value &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read_attribute_value &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1547,11 +1628,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read_inner_xml" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read_inner_xml &rarr; data
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read_inner_xml &rarr; data
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1583,11 +1666,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read_outer_xml" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read_outer_xml &rarr; data
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read_outer_xml &rarr; data
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1619,11 +1704,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read_state" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read_state &rarr; state
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read_state &rarr; state
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1642,11 +1729,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-read_string" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            read_string &rarr; string
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              read_string &rarr; string
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1678,11 +1767,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-relax_ng_validate" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            relax_ng_validate(rng) &rarr; boolean
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              relax_ng_validate(rng) &rarr; boolean
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1708,11 +1799,13 @@ rxml_reader_line_number(VALUE self)
       </div>
 
       <div id="method-i-schema_validate" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            schema_validate(schema) &rarr; boolean
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              schema_validate(schema) &rarr; boolean
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1739,11 +1832,13 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
       </div>
 
       <div id="method-i-standalone" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            standalone &rarr; code
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              standalone &rarr; code
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1764,11 +1859,13 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
       </div>
 
       <div id="method-i-valid-3F" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            valid? &rarr; bool
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              valid? &rarr; bool
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1787,11 +1884,13 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
       </div>
 
       <div id="method-i-value" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            value &rarr; text
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              value &rarr; text
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1813,11 +1912,13 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
       </div>
 
       <div id="method-i-xml_lang" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            xml_lang &rarr; value
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              xml_lang &rarr; value
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1839,11 +1940,13 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
       </div>
 
       <div id="method-i-xml_version" class="method-detail ">
-        <div class="method-heading">
-          <span class="method-callseq">
-            xml_version &rarr; version
-          </span>
-          <span class="method-click-advice">click to toggle source</span>
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              xml_version &rarr; version
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
 
         <div class="method-description">
@@ -1872,7 +1975,7 @@ rxml_reader_schema_validate(VALUE self, VALUE xsd)
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.4.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
