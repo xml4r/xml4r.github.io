@@ -127,133 +127,132 @@
         <div class="method-header">
           <div class="method-heading">
             <span class="method-callseq">
-              XML::Dtd.new(&quot;DTD string&quot;) &rarr; dtd
+              XML::Dtd.new(dtd_string) &rarr; dtd
             </span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
           <div class="method-heading">
             <span class="method-callseq">
-              XML::Dtd.new(&quot;public&quot;, &quot;system&quot;) &rarr; dtd
+              XML::Dtd.new(external_id, system_id) &rarr; dtd
             </span>
           </div>
           <div class="method-heading">
             <span class="method-callseq">
-              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document) &rarr; external subset dtd
-            </span>
-          </div>
-          <div class="method-heading">
-            <span class="method-callseq">
-              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, false) &rarr; internal subset dtd
-            </span>
-          </div>
-          <div class="method-heading">
-            <span class="method-callseq">
-              XML::Dtd.new(&quot;name&quot;, &quot;public&quot;, &quot;system&quot;, document, true) &rarr; internal subset dtd
+              XML::Dtd.new(external_id, system_id, name, document, internal) &rarr; dtd
             </span>
           </div>
         </div>
 
         <div class="method-description">
-          <p>Create a new <a href="Dtd.html"><code>Dtd</code></a> from the specified public and system identifiers.</p>
+          <p>Create a new <a href="Dtd.html"><code>Dtd</code></a> from the specified public and system identifiers:</p>
+
+<pre>* The first usage creates a DTD from a string and requires 1 parameter.
+* The second usage loads and parses an external DTD and requires 2 parameters.
+* The third usage creates a new internal or external DTD and requires 3 parameters and 2 optional parameters.
+  It then attaches the DTD to the specified document if it is not nil</pre>
+
+<p>Parameters:</p>
+
+<pre>dtd_string - A string that contains a complete DTD
+external_id - A string that specifies the DTD&#39;s external name. For example, &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;
+system_id - A string that specififies the DTD&#39;s system name. For example, &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;
+name - A string that specifies the DTD&#39;s name. For example &quot;xhtml1&quot;.
+document - A xml document.
+internal - Boolean value indicating whether this is an internal or external DTD. Optional. If not specified
+           then external is assumed.</pre>
 
           <div class="method-source-code" id="new-source">
             <pre>static VALUE rxml_dtd_initialize(int argc, VALUE *argv, VALUE self)
 {
-  VALUE external, system, dtd_string;
-  xmlParserInputBufferPtr buffer;
-  xmlCharEncoding enc = XML_CHAR_ENCODING_NONE;
-  xmlChar *new_string;
   xmlDtdPtr xdtd;
+  VALUE external, system;
 
-  // 1 argument -- string                            --&gt; parsujeme jako dtd
-  // 2 arguments -- public, system                   --&gt; bude se hledat
-  // 3 arguments -- public, system, name             --&gt; creates an external subset (any parameter may be nil)
-  // 4 arguments -- public, system, name, doc        --&gt; creates an external subset (any parameter may be nil)
-  // 5 arguments -- public, system, name, doc, true  --&gt; creates an internal subset (all but last parameter may be nil)
   switch (argc)
   {
-  case 3:
-  case 4:
-  case 5: {
-      VALUE name, doc, internal;
-      const xmlChar *xname = NULL, *xpublic = NULL, *xsystem = NULL;
-      xmlDocPtr xdoc = NULL;
+      case 3:
+      case 4:
+      case 5:
+      {
+          const xmlChar *xname = NULL, *xpublic = NULL, *xsystem = NULL;
+          xmlDocPtr xdoc = NULL;
 
-      rb_scan_args(argc, argv, &quot;32&quot;, &amp;external, &amp;system, &amp;name, &amp;doc, &amp;internal);
+          VALUE name, doc, internal;
+          rb_scan_args(argc, argv, &quot;32&quot;, &amp;external, &amp;system, &amp;name, &amp;doc, &amp;internal);
 
-      if (external != Qnil) {
+          Check_Type(external, T_STRING);
+          xpublic = (const xmlChar*) StringValuePtr(external);
+
+          Check_Type(system, T_STRING);
+          xsystem = (const xmlChar*) StringValuePtr(system);
+
+          Check_Type(name, T_STRING);
+          xname = (const xmlChar*) StringValuePtr(name);
+
+          if (doc != Qnil)
+          {
+            if (rb_obj_is_kind_of(doc, cXMLDocument) == Qfalse)
+              rb_raise(rb_eTypeError, &quot;Must pass an LibXML::XML::Document object&quot;);
+            Data_Get_Struct(doc, xmlDoc, xdoc);
+          }
+
+          if (internal == Qnil || internal == Qfalse)
+            xdtd = xmlNewDtd(xdoc, xname, xpublic, xsystem);
+          else
+            xdtd = xmlCreateIntSubset(xdoc, xname, xpublic, xsystem);
+
+          if (xdtd == NULL)
+            rxml_raise(xmlGetLastError());
+
+          /* The document will free the dtd so Ruby should not */
+          RDATA(self)-&gt;dfree = NULL;
+          DATA_PTR(self) = xdtd;
+
+          xmlSetTreeDoc((xmlNodePtr) xdtd, xdoc);
+        }
+        break;
+
+      case 2:
+      {
+        rb_scan_args(argc, argv, &quot;20&quot;, &amp;external, &amp;system);
+
         Check_Type(external, T_STRING);
-        xpublic = (const xmlChar*) StringValuePtr(external);
-      }
-      if (system != Qnil) {
         Check_Type(system, T_STRING);
-        xsystem = (const xmlChar*) StringValuePtr(system);
+
+        xdtd = xmlParseDTD((xmlChar*) StringValuePtr(external), (xmlChar*) StringValuePtr(system));
+
+        if (xdtd == NULL)
+          rxml_raise(xmlGetLastError());
+
+        DATA_PTR(self) = xdtd;
+
+        xmlSetTreeDoc((xmlNodePtr) xdtd, NULL);
+        break;
       }
-      if (name != Qnil) {
-        Check_Type(name, T_STRING);
-        xname = (const xmlChar*) StringValuePtr(name);
+      case 1:
+      {
+        VALUE dtd_string;
+        rb_scan_args(argc, argv, &quot;10&quot;, &amp;dtd_string);
+        Check_Type(dtd_string, T_STRING);
+
+        /* Note that buffer is freed by xmlParserInputBufferPush*/
+        xmlCharEncoding enc = XML_CHAR_ENCODING_NONE;
+        xmlParserInputBufferPtr buffer = xmlAllocParserInputBuffer(enc);
+        xmlChar *new_string = xmlStrdup((xmlChar*) StringValuePtr(dtd_string));
+        xmlParserInputBufferPush(buffer, xmlStrlen(new_string),
+            (const char*) new_string);
+
+        xdtd = xmlIOParseDTD(NULL, buffer, enc);
+
+        if (xdtd == NULL)
+          rxml_raise(xmlGetLastError());
+
+        xmlFree(new_string);
+
+        DATA_PTR(self) = xdtd;
+        break;
       }
-      if (doc != Qnil) {
-        if (rb_obj_is_kind_of(doc, cXMLDocument) == Qfalse)
-          rb_raise(rb_eTypeError, &quot;Must pass an LibXML::XML::Document object&quot;);
-        Data_Get_Struct(doc, xmlDoc, xdoc);
-      }
-
-      if (internal == Qnil || internal == Qfalse)
-        xdtd = xmlNewDtd(xdoc, xname, xpublic, xsystem);
-      else
-        xdtd = xmlCreateIntSubset(xdoc, xname, xpublic, xsystem);
-
-      if (xdtd == NULL)
-        rxml_raise(xmlGetLastError());
-
-      /* Document will free this dtd now. */
-      RDATA(self)-&gt;dfree = NULL;
-      DATA_PTR(self) = xdtd;
-
-      xmlSetTreeDoc((xmlNodePtr) xdtd, xdoc);
-    }
-    break;
-
-  case 2:
-    rb_scan_args(argc, argv, &quot;20&quot;, &amp;external, &amp;system);
-
-    Check_Type(external, T_STRING);
-    Check_Type(system, T_STRING);
-
-    xdtd = xmlParseDTD((xmlChar*) StringValuePtr(external),
-        (xmlChar*) StringValuePtr(system));
-
-    if (xdtd == NULL)
-      rxml_raise(xmlGetLastError());
-
-    DATA_PTR(self) = xdtd;
-
-    xmlSetTreeDoc((xmlNodePtr) xdtd, NULL);
-    break;
-
-  case 1:
-    rb_scan_args(argc, argv, &quot;10&quot;, &amp;dtd_string);
-    Check_Type(dtd_string, T_STRING);
-
-    /* Note that buffer is freed by xmlParserInputBufferPush*/
-    buffer = xmlAllocParserInputBuffer(enc);
-    new_string = xmlStrdup((xmlChar*) StringValuePtr(dtd_string));
-    xmlParserInputBufferPush(buffer, xmlStrlen(new_string),
-        (const char*) new_string);
-
-    xdtd = xmlIOParseDTD(NULL, buffer, enc);
-
-    if (xdtd == NULL)
-      rxml_raise(xmlGetLastError());
-
-    xmlFree(new_string);
-
-    DATA_PTR(self) = xdtd;
-    break;
-
-  default:
-    rb_raise(rb_eArgError, &quot;wrong number of arguments&quot;);
+      default:
+        rb_raise(rb_eArgError, &quot;wrong number of arguments&quot;);
   }
 
   return self;
