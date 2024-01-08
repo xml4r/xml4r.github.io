@@ -148,8 +148,8 @@
 
 <pre>* The first usage creates a DTD from a string and requires 1 parameter.
 * The second usage loads and parses an external DTD and requires 2 parameters.
-* The third usage creates a new internal or external DTD and requires 3 parameters and 2 optional parameters.
-  It then attaches the DTD to the specified document if it is not nil</pre>
+* The third usage creates a new internal or external DTD and requires 2 parameters and 3 optional parameters.
+  The DTD is then attached to the specified document if it is not nil.</pre>
 
 <p>Parameters:</p>
 
@@ -177,7 +177,7 @@ internal - Boolean value indicating whether this is an internal or external DTD.
           xmlDocPtr xdoc = NULL;
 
           VALUE name, doc, internal;
-          rb_scan_args(argc, argv, &quot;32&quot;, &amp;external, &amp;system, &amp;name, &amp;doc, &amp;internal);
+          rb_scan_args(argc, argv, &quot;23&quot;, &amp;external, &amp;system, &amp;name, &amp;doc, &amp;internal);
 
           Check_Type(external, T_STRING);
           xpublic = (const xmlChar*) StringValuePtr(external);
@@ -185,8 +185,11 @@ internal - Boolean value indicating whether this is an internal or external DTD.
           Check_Type(system, T_STRING);
           xsystem = (const xmlChar*) StringValuePtr(system);
 
-          Check_Type(name, T_STRING);
-          xname = (const xmlChar*) StringValuePtr(name);
+          if (name != Qnil)
+          {
+            Check_Type(name, T_STRING);
+            xname = (const xmlChar*)StringValuePtr(name);
+          }
 
           if (doc != Qnil)
           {
